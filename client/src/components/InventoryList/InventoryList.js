@@ -2,6 +2,11 @@ import "./InventoryList.scss"
 import axios from 'axios'
 
 const InventoryList =({inventList}) => {
+    const statusOf =() => {
+        if (inventList.quantity === 0){
+            <p></p>
+        }
+    }
     return (
         <div className="invent__titlecon">
             <div className="invent__titlecon">
