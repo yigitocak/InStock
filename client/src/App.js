@@ -1,11 +1,27 @@
 import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Warehouses from './pages/Warehouses/Warehouses';
+import Inventory from './pages/Inventory/Inventory';
+import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails';
+import WarehouseEdit from './pages/WareohuseEdit/WarehouseEdit';
+import WarehouseAdd from './pages/WarehouseAdd/WarehouseAdd';
+import InventoryItemDetails from './pages/InventoryItemDetails/InventoryItemDetails';
+import InventoryItemEdit from './pages/InventoryItemEdit/InventoryItemEdit';
+import InventoryAddItem from './pages/InventoryAddItem/InventoryAddItem';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={}/>
+        <Route path='/' element={< Warehouses />}/>
+        <Route path='/warehouses/:warehouseId' element={<WarehouseDetails />} />
+        <Route path='/warehouses/:warehouseId/edit' element={<WarehouseEdit />} />
+        <Route path='/warehouses/add' element={<WarehouseAdd />} />
+
+        <Route path='/inventory' element={< Inventory />}/>
+        <Route path='/inventory/:inventoryId' element={<InventoryItemDetails />} />
+        <Route path='/inventory/:inventoryId/edit' element={<InventoryItemEdit />} />
+        <Route path='/inventory/add' element={< InventoryAddItem />}/>
       </Routes>
     </BrowserRouter>
   );
