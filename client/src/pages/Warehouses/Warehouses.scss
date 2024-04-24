@@ -1,0 +1,15 @@
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/globals' as *;
+@use '../../styles/partials/mixins' as *;
+
+.warehousesMain {
+    display: flex;
+    flex-direction: column;
+    background-color: $grey;
+
+    &__container {
+        background-color: $white;
+        margin: 1rem;
+    }
+}
