@@ -1,7 +1,5 @@
-@use '../../styles/partials/colors' as *;
-@use '../../styles/partials/fonts' as *;
 @use '../../styles/partials/globals' as *;
-@use '../../styles/partials/mixins' as *;
+
 
 .warehousesMain {
     display: flex;
@@ -11,5 +9,14 @@
     &__container {
         background-color: $white;
         margin: 1rem;
+        margin-top: -3rem;
+        border: 1px solid $white;
+        box-shadow: $white;
+        border-radius: 2px;
+
+        @include tablet {
+            margin: 2rem;
+            margin-top: -4rem;
+        }
     }
 }

@@ -1,13 +1,13 @@
-@use '../../styles/partials/colors' as *;
-@use '../../styles/partials/fonts' as *;
+
 @use '../../styles/partials/globals' as *;
-@use '../../styles/partials/mixins' as *;
+
 
 
 .search {
     display: flex;
     flex-direction: column;
     padding: 1rem;
+    padding-top: 0%;
     gap: 1rem;
 
     @include tablet {

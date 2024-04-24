@@ -9,10 +9,12 @@ import WarehouseAdd from './pages/WarehouseAdd/WarehouseAdd';
 import InventoryItemDetails from './pages/InventoryItemDetails/InventoryItemDetails';
 import InventoryItemEdit from './pages/InventoryItemEdit/InventoryItemEdit';
 import InventoryAddItem from './pages/InventoryAddItem/InventoryAddItem';
+import Header from './components/Header/Header';
 
 function App() {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path='/' element={< Warehouses />}/>
         <Route path='/warehouses/:warehouseId' element={<WarehouseDetails />} />
