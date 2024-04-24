@@ -1,12 +1,4 @@
-@import  '../../styles/partials/mixins';
-@import '../../styles/partials/colors';
-
-//fonts need to be added
-//globals needs to be links once chimdi is done
-
-*, *::after, *::before {
-    box-sizing: border-box;
-  } //this can be removed after the globals is done
+@import '../../styles/partials/globals';
 
 .nav {
     display: flex;
