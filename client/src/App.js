@@ -1,4 +1,5 @@
 import './App.css';
+import "./styles/partials/_globals.scss"
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Warehouses from './pages/Warehouses/Warehouses';
 import Inventory from './pages/Inventory/Inventory';
