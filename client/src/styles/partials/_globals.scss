@@ -1,0 +1,12 @@
+@import "./mixins";
+@import "./colors" ;
+@import "./fonts";
+
+*,*::after,*::before{
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    font-family: 'AvenirNext',sans-serif,'Avenir-Next';
+}
