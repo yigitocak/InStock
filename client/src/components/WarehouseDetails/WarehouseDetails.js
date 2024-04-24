@@ -1,6 +1,7 @@
 import axios from 'axios'
 import "./WarehouseDetails.scss"
 import InventoryList from '../InventoryList/InventoryList'
+import back from "../../assets/icons/arrow_back-24px.svg"
 
 
 const WarehouseDetails = ({activeWh}) => {
@@ -9,6 +10,7 @@ const WarehouseDetails = ({activeWh}) => {
     <div>
         <div className="" >
             <div>
+                <img src={back} alt="" />
                 <h1>{activeWh.warehouse_name}</h1>
             </div>
             <div className="" >
