@@ -1,4 +1,10 @@
 @import '../../styles/partials/globals';
+@import '../../styles/partials/colors';
+@import '../../styles/partials/mixins';
+
+*,*::after,*::before{
+    box-sizing: border-box;
+}
 
 .nav {
     display: flex;
