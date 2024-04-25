@@ -1,7 +1,6 @@
 @use '../../styles/partials/globals' as *;
 
-
-.warehousesMain {
+.edit {
     display: flex;
     flex-direction: column;
     background-color: $grey;
@@ -19,5 +18,10 @@
             margin-top: -4rem;
         }
     }
+    &__top {
+        display: flex;
+        padding-left: 1rem;
+        gap: .5rem;
+        border-bottom: 1px solid $cloud;
+    }
 }
-

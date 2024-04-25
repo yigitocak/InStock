@@ -12,6 +12,7 @@
 
     @include tablet {
         flex-direction: row;
+        align-items: center;
     }
 }
 
@@ -40,6 +41,7 @@
 
         @include tablet {
             width: 35%;
+            align-self: center;
         }
     }
 
