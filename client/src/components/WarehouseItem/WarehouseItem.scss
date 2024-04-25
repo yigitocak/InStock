@@ -1,0 +1,80 @@
+
+@use '../../styles/partials/globals' as *;
+
+
+.item {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-top: 1px solid $cloud;
+    gap: 1.25rem;
+
+    @include tablet {
+        display: none;
+    }
+
+    &__allData {
+        display: flex;
+        justify-content: space-between;
+        padding-right: 2rem;
+    }
+        &__left {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        &__right {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+            &__label {
+                color: $slate;
+                font-size: .85rem;
+                width: 100%;
+            }
+            &__name {
+                width: 100%;
+                color: $indigo;
+            }
+            &__data {
+                width: 100%;
+            }
+
+        &__actions {
+            display: flex;
+            justify-content: space-between;
+
+            @include tablet {
+                gap: .5rem;
+            }
+        }
+}
+
+.warehouseNav {
+    display: none;
+    background-color: $grey;
+
+    @include tablet {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+
+    &__div {
+        display: flex;
+        align-items: center;
+        
+    }
+}
+
+.otherItem {
+    display: none;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid $cloud;
+
+    @include tablet {
+        display: flex;
+    }
+}
