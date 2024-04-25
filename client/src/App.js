@@ -10,7 +10,6 @@ import WarehouseAdd from './pages/WarehouseAdd/WarehouseAdd';
 import InventoryItemDetails from './pages/InventoryItemDetails/InventoryItemDetails';
 import InventoryItemEdit from './pages/InventoryItemEdit/InventoryItemEdit';
 import InventoryAddItem from './pages/InventoryAddItem/InventoryAddItem';
-import Header from './components/Header/Header';
 
 
 function App() {
