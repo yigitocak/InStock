@@ -46,7 +46,7 @@
     }
 
     @include desktop {
-      width: 50vw;
+      width: 48vw;
     }
   }
 
@@ -55,6 +55,9 @@
 
     @include tablet {
       width: 50vw;
+    }
+    @include desktop {
+      width: 48vw;
     }
   }
 
