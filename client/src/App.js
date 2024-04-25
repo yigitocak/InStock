@@ -1,6 +1,7 @@
 import './App.css';
 import "./styles/partials/_globals.scss"
 import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Header from './components/Header/Header';
 import Warehouses from './pages/Warehouses/Warehouses';
 import Inventory from './pages/Inventory/Inventory';
 import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails';
@@ -10,6 +11,7 @@ import InventoryItemDetails from './pages/InventoryItemDetails/InventoryItemDeta
 import InventoryItemEdit from './pages/InventoryItemEdit/InventoryItemEdit';
 import InventoryAddItem from './pages/InventoryAddItem/InventoryAddItem';
 import Header from './components/Header/Header';
+
 
 function App() {
   return (

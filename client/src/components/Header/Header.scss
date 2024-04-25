@@ -1,11 +1,14 @@
 @import '../../styles/partials/globals';
 
+
 .nav {
     display: flex;
-    height: 8.5rem;
     background-color: $graphite;
-    padding-bottom: 4.0625rem;
-    
+    padding: 1rem 1rem 2rem 1rem;
+    @include tablet {
+        padding: 2rem 2rem;
+    }
+
     &__container {
         display: flex;
         justify-content: space-between;
@@ -15,79 +18,60 @@
 
         @include tablet {
             flex-direction: row;
-            height: 5.75rem;
-            padding-bottom: 5.75rem;
-            margin: 0 1%;
-        }
-        @include desktop {
-            margin: 0 8%;
+            justify-content: space-between;
         }
     }
-    &__logo-container {
-        @include tablet {
-            margin-left: 1.5625rem;
-        }
-    }
+
     &__img {
-        width: 8.125rem;
-        margin-top: 1.5625rem;
-        @include tablet {
-            margin-top: 0.625rem;
-        }
-    }
-    &__links {
-        width: 100%;
+        padding-bottom: 1.5rem;
+        padding-top: .5rem;
 
         @include tablet {
-            width: 28%;
-        }
-        @include desktop {
-            width: 25%;
+            margin: 0;
+            padding: 0;
         }
     }
-    &__link {
-        margin: 0 0.9375rem;
-    }
+
     &__list {
         list-style: none;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
         padding: 0;
+        margin:0;
+
         @include tablet {
-            margin: 0.625rem 0 0 0;
-            width: 100%;
-        }
-    }
-    &__warehouses {
-        color: $white;
-        font-size: 0.82rem;
-        text-decoration: none;
-        width: 50%;
-        padding: 0.5rem 1rem;
-        text-align: center;
-        @include tablet {
-            width: 30%;
             margin: 0;
+            justify-content: end;
         }
     }
-    &__inventory {
-        color: $white;
+
+    &__item {
+        color: $cloud;
+        font-family: "Titillium Web", sans-serif, open;
         font-size: 0.82rem;
+        font-weight: 500;
         text-decoration: none;
-        width: 50%;
-        padding: 0.5rem 1rem;
+        padding: 0.4rem 2.6rem;
         text-align: center;
+
         @include tablet {
-            width: 30%;
             margin: 0;
+            padding: 0.5rem 1.1rem;
+            font-size: .875rem;
+            line-height: 1.375rem;
         }
+
+        &.active {
+            font-weight: 500;
+            color: $white;
+            background-color: $black;
+            border-radius: 1.25rem;
+
+        }
+
     }
-    &__warehouses--active {
-        font-weight: bold;
-        background-color: $black;
-        border-radius: 1.25rem;
-    }
-};
+
+}
 
 a:hover {
     text-decoration: underline;
