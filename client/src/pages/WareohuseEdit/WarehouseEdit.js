@@ -1,6 +1,20 @@
+import './WarehouseEdit.scss'
+import arrow from '../../assets/icons/arrow_back-24px.svg'
+import FormWarehouseDetails from '../../components/FormWarehouseDetails/FormWarehouseDetails'
+
 const WarehouseEdit = () => {
+
     return (
-        <div>Placeholder Edit</div>
+        <main className='edit'>
+            <section className='edit__container'>
+                <div className='edit__top'>
+                    <img src={arrow} alt='arrow to the left'/>
+                    <h1 className='edit__title'>Edit Warehouse</h1>
+                </div>
+                
+                <FormWarehouseDetails />
+            </section>
+        </main>
     )
 }
 
