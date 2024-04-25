@@ -8,6 +8,12 @@
     padding: 1rem;
     border-top: 1px solid $cloud;
     gap: 1.25rem;
+  
+    &__button {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+    }
 
     @include tablet {
         display: none;
