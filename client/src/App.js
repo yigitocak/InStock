@@ -10,6 +10,7 @@ import WarehouseAdd from './pages/WarehouseAdd/WarehouseAdd';
 import InventoryItemDetails from './pages/InventoryItemDetails/InventoryItemDetails';
 import InventoryItemEdit from './pages/InventoryItemEdit/InventoryItemEdit';
 import InventoryAddItem from './pages/InventoryAddItem/InventoryAddItem';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path='/inventory/:inventoryId/edit' element={<InventoryItemEdit />} />
         <Route path='/inventory/add' element={< InventoryAddItem />}/>
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
