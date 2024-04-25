@@ -12,7 +12,6 @@ import InventoryItemEdit from './pages/InventoryItemEdit/InventoryItemEdit';
 import InventoryAddItem from './pages/InventoryAddItem/InventoryAddItem';
 
 
-
 function App() {
   return (
     <BrowserRouter>

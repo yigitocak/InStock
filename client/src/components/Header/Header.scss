@@ -4,9 +4,9 @@
 .nav {
     display: flex;
     background-color: $graphite;
-    padding: 1rem 1rem 2rem 1rem;
+    padding: 1rem 1rem 4.75rem 1rem;
     @include tablet {
-        padding: 2rem 2rem;
+        padding: 2rem 2rem 6.5rem 2rem;
     }
 
     &__container {
