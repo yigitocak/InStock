@@ -1,0 +1,112 @@
+@use '../../styles/partials/globals' as *;
+
+.edit {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: $white;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+
+        @include tablet {
+            flex-direction: row;
+            gap: 2rem;
+        }
+    }
+
+    &__item {
+        padding: 1rem;
+    }
+
+    &__title {
+        font-family: "Titillium Web", open, sans-serif;
+        font-size: 1.25rem;
+        color: $black;
+        margin: 0;
+        font-weight: 600;
+        display: inline-block;
+        padding-bottom: 1.5rem;
+    }
+
+    &__label {
+        font-family: "Titillium Web", open, sans-serif;
+        font-size: .8125rem;
+        color: $black;
+        margin: 0;
+        font-weight: 600;
+    }
+
+    &__input {
+        border: 1px solid $cloud;
+        border-radius: 15px;
+        width: 100%;
+        height: 2rem;
+        padding: 0 1rem;
+        margin-top: .2rem;
+        margin-bottom: 1rem;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__input-description {
+        border: 1px solid $cloud;
+        border-radius: 15px;
+        width: 100%;
+        height: 6rem;
+        padding: 0 1rem;
+        margin-top: .2rem;
+        margin-bottom: 1rem;
+
+    }
+
+    &__select {
+        border: 1px solid $cloud;
+        border-radius: 15px;
+        width: 100%;
+        height: 2rem;
+        padding: 0 1rem;
+        margin-top: .2rem;
+        margin-bottom: .5rem;
+    }
+
+    &__availability {
+        border-top:1px solid $cloud;
+        padding: 1rem;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: 1rem;
+        padding-top: .5rem;
+        padding-bottom: 1rem;
+        background-color: $grey;
+    }
+
+    &__button {
+        border: 1px solid $cloud;
+        font-family: "Titillium Web", open, sans-serif;
+        border-radius: 1.25rem;
+        color: $slate;
+        text-align: center;
+        font-weight: 600;
+        background-color: $white;
+        font-size: .8125rem;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+        width: 7.5rem;
+    }
+
+    &__button--blue {
+        background-color: $indigo;
+        color: $white;
+        border: none;
+    }
+}
