@@ -1,0 +1,27 @@
+@use '../../styles/partials/globals' as *;
+
+.edit {
+    display: flex;
+    flex-direction: column;
+    background-color: $grey;
+
+    &__container {
+        background-color: $white;
+        margin: 1rem;
+        margin-top: -3rem;
+        border: 1px solid $white;
+        box-shadow: $white;
+        border-radius: 2px;
+
+        @include tablet {
+            margin: 2rem;
+            margin-top: -4rem;
+        }
+    }
+    &__top {
+        display: flex;
+        padding-left: 1rem;
+        gap: .5rem;
+        border-bottom: 1px solid $cloud;
+    }
+}

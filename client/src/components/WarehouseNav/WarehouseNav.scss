@@ -1,0 +1,18 @@
+@use '../../styles/partials/globals' as *;
+
+.warehouseNav {
+    display: none;
+    background-color: $grey;
+    justify-content: space-between;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    @include tablet {
+        display: flex;
+    }
+
+    &__div {
+        display: flex;
+        align-items: center;
+    }
+}
