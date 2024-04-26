@@ -11,15 +11,16 @@
         flex-direction: column;
         margin: 0;
         box-shadow: 0px 2px 5px 0px #13182C1A;
-
-        @include tablet {
-            flex-direction: row;
-            gap: 2rem;
-        }
     }
 
     &__item {
         padding: 1rem;
+        @include tablet {
+            flex:3;
+            padding: 0 2rem;
+            border-right: 1px solid $cloud; 
+            margin: 1rem 0;
+        }
     }
 
     &__title {
@@ -30,6 +31,16 @@
         font-weight: 600;
         display: inline-block;
         padding-bottom: 1.25rem;
+        @include tablet {
+            
+        }
+    }
+
+    &__main {
+        @include tablet {
+            padding-bottom: 10rem;
+            background-color: $grey;
+        }
     }
 
     &__label {
@@ -44,7 +55,7 @@
         border: 1px solid $cloud;
         border-radius: 15px;
         width: 100%;
-        height: 2rem;
+        height: 1.87rem;
         padding: 0 1rem;
         margin-top: .2rem;
         margin-bottom: 1rem;
@@ -89,6 +100,11 @@
     &__availability {
         border-top: 1px solid $cloud;
         padding: 1rem;
+        @include tablet {
+            border: none;
+            flex:3;
+            padding: 1rem 2rem;
+        }
     }
 
     &__container-2 {
@@ -104,17 +120,27 @@
         align-items: center;
     }
 
+    &__radio-button {
+        margin-right: .4rem;
+    }
+
     &__radio-label {
         font-size: .6875rem;
         font-family: "Titillium Web", open, sans-serif;
         font-weight: 400;
         color: $slate;
-        margin-bottom: .2rem;
+        margin-bottom: .3rem;
     }
 
     &__status-selector input[type="radio"]:checked+label {
         color: $black;
         border-color: $indigo;
+    }
+
+    &__tablet {
+        @include tablet {
+            display: flex;
+        }
     }
 
     &__buttons {
@@ -125,6 +151,9 @@
         padding-top: .5rem;
         padding-bottom: 1rem;
         background-color: $grey;
+        @include tablet {
+            justify-content: end;
+        }
     }
 
     &__button {
@@ -140,11 +169,18 @@
         padding-bottom: .5rem;
         width: 8.2rem;
         height: 2.25rem;
+        @include tablet {
+            width: 3.75rem;
+            margin-top: .5rem;
+        }
     }
 
     &__button--blue {
         background-color: $indigo;
         color: $white;
         border: none;
+        @include tablet {
+            margin-right: 2rem;
+        }
     }
 }
