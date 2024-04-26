@@ -65,6 +65,25 @@ const InventoryList =({warehouseId}) => {
                 </div>
                 
             </div>
+            {
+                    activeInventory.map((inventory) =>{
+                        return(
+                        <article className="invent__tablet" >
+                        <div className="invent__item">
+                            <p>{inventory.item_name}</p>
+                            <img className="invent__icons" src={right} alt=""/>
+                        </div>
+                        <div className="invent__item">{inventory.category}</div>
+                        <div className="invent__item">{statusOf}</div>
+                        <div className="invent__item">{inventory.quantity}</div>
+                        <div className="invent__item">
+                            <img className="invent__icons" src={edit} alt =""/>
+                            <img className="invent__icons" src={deletecon} alt =""/>
+                        </div>
+                        </article>
+                        )
+                    })
+            }
 
             <div>
                 {
@@ -95,7 +114,7 @@ const InventoryList =({warehouseId}) => {
                                         <p className="invent__item">{inventory.quantity}</p>
                                     </div>
                                 </section>
-                            
+                            </section>
                                 <section className='invent__actions'>
                                     <button className="invent__button" >
                                         <img src={deletecon} alt="Delete"/>
@@ -104,7 +123,7 @@ const InventoryList =({warehouseId}) => {
                                         <img src={edit} alt='edit'/>
                                     </Link>
                                 </section>
-                            </section>
+                            
                         </article>
                     )})
                 }

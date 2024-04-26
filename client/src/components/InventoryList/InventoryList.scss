@@ -18,6 +18,16 @@
     &__itemcon{
         display: flex;
         justify-content: space-around;
+        @include tablet{
+            display: none;
+        }
+    }
+    &__tablet{
+        display:none;
+        @include tablet{
+            display:flex;
+            justify-content: space-between;
+        }
     }
     &__title{
         display: flex;
