@@ -10,6 +10,7 @@
         display: flex;
         flex-direction: column;
         margin: 0;
+        box-shadow: 0px 2px 5px 0px #13182C1A;
 
         @include tablet {
             flex-direction: row;
@@ -23,17 +24,17 @@
 
     &__title {
         font-family: "Titillium Web", open, sans-serif;
-        font-size: 1.25rem;
+        font-size: 1.18rem;
         color: $black;
         margin: 0;
         font-weight: 600;
         display: inline-block;
-        padding-bottom: 1.5rem;
+        padding-bottom: 1.25rem;
     }
 
     &__label {
         font-family: "Titillium Web", open, sans-serif;
-        font-size: .8125rem;
+        font-size: .75rem;
         color: $black;
         margin: 0;
         font-weight: 600;
@@ -52,6 +53,15 @@
     &__form {
         display: flex;
         flex-direction: column;
+        position: relative;
+    }
+
+    &__arrowdrop {
+        position: absolute;
+        top: 62%;
+        right: 10px;
+        transform: translateY(-50%);
+        width: 1.5rem;
     }
 
     &__input-description {
@@ -69,15 +79,42 @@
         border: 1px solid $cloud;
         border-radius: 15px;
         width: 100%;
-        height: 2rem;
+        height: 1.9rem;
         padding: 0 1rem;
         margin-top: .2rem;
         margin-bottom: .5rem;
+        appearance: none;
     }
 
     &__availability {
-        border-top:1px solid $cloud;
+        border-top: 1px solid $cloud;
         padding: 1rem;
+    }
+
+    &__container-2 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+        position: relative;
+    }
+
+    &__radio {
+        display: flex;
+        gap: 5rem;
+        align-items: center;
+    }
+
+    &__radio-label {
+        font-size: .6875rem;
+        font-family: "Titillium Web", open, sans-serif;
+        font-weight: 400;
+        color: $slate;
+        margin-bottom: .2rem;
+    }
+
+    &__status-selector input[type="radio"]:checked+label {
+        color: $black;
+        border-color: $indigo;
     }
 
     &__buttons {
@@ -98,10 +135,11 @@
         text-align: center;
         font-weight: 600;
         background-color: $white;
-        font-size: .8125rem;
+        font-size: .75rem;
         padding-top: .5rem;
         padding-bottom: .5rem;
-        width: 7.5rem;
+        width: 8.2rem;
+        height: 2.25rem;
     }
 
     &__button--blue {
