@@ -5,6 +5,25 @@ import deletecon from "../../assets/icons/delete_outline-24px.svg"
 import right from "../../assets/icons/chevron_right-24px.svg"
 import dropdown from "../../assets/icons/arrow_drop_down-24px.svg"
 const InventoryTab =({inventList}) => {
+
+    const [inventory, setInventory] = useState(null)
+
+    useEffect(() => {
+        const getInventory = async() => {
+            try{
+                const response = await axios.get(`${ApiUrl}/inventories`)
+                setInventory(response.data)
+            }
+            catch(err){
+                console.error(err)
+            }
+        }
+        getInventory()
+        },[])
+        if (! inventory){
+            return<div>Loading ...</div>
+        }
+
     const statusOf =() => {
         inventList.forEach((inventory) =>{
             if (inventList.quantity === 0){

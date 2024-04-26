@@ -5,15 +5,15 @@ import back from "../../assets/icons/arrow_back-24px.svg"
 import {useState, useEffect} from 'react'
 
 
-const WarehouseDetails = ({id}) => {
+const WarehouseDetails = ({warehouseId}) => {
 
-    const ApiUrl = "http://localhost:8080"
+    const ApiUrl = "http://localhost:8080/api"
     const [activeWh, setactiveWh] = useState(null)
 
     useEffect(() => {
         const getWhDetails = async() => {
             try{
-                const response = await axios.get(`${ApiUrl}/`)
+                const response = await axios.get(`${ApiUrl}/warehouses/${warehouseId}`)
                 setactiveWh(response.data)
             }
             catch(err){
@@ -21,7 +21,7 @@ const WarehouseDetails = ({id}) => {
             }
         }
         getWhDetails()
-        },[id])
+        },[warehouseId])
         if (! activeWh){
             return<div>Loading ...</div>
         }
@@ -42,25 +42,21 @@ const WarehouseDetails = ({id}) => {
             <div>
                 <div className="" >
                 <h3>CONTACT NAME:</h3>
-                <p>{activeWh.contact_name}</p>
+                <p>{activeWh.contact.name}</p>
                 <br/>
-                <p>{activeWh.contact_position}</p>
+                <p>{activeWh.contact.position}</p>
                 </div>
                 <div className="" >
                 <h3>CONTACT INFORMATION:</h3>
-                <p>{activeWh.contact_phone}</p>
+                <p>{activeWh.contact.phone}</p>
                 <br />
-                <p>{activeWh.contact_email}</p>
+                <p>{activeWh.contact.email}</p>
                 </div>
             </div>
             
 
         </div>
-        <div>
-            <InventoryList 
-                activeWh = {activeWh}
-            />
-        </div>
+
     </div>
 
 

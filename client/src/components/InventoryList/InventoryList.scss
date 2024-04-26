@@ -1,0 +1,54 @@
+@use '../../styles/partials/globals' as *;
+
+.invent{
+    &__itemcon{
+        display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-top: 1px solid $cloud;
+    gap: 1.25rem;
+    }
+    &__titlecon{
+        display: flex;
+        justify-content: space-around;
+    }
+    &__item{
+        display: flex;
+    }
+    &__itemcon{
+        display: flex;
+        justify-content: space-around;
+    }
+    &__title{
+        display: flex;
+    }
+    &__list{
+        display: flex;
+    }
+    &__des {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    &__available {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    &__label {
+        color: $slate;
+        @include tablet{
+            display: none;
+        }
+    }
+    &__actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include tablet {
+            gap: .5rem;
+        }
+    }
+
+}
