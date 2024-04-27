@@ -1,0 +1,18 @@
+@use '../../styles/partials/globals' as *;
+
+.details{
+    &__con{
+        display: flex;
+        justify-content: space-between;
+        width:50%;
+    }
+    &__div{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 2rem;
+    }
+    &__header{
+        display: flex;
+        padding-left: 1rem;
+    }
+}

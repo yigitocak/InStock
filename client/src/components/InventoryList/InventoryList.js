@@ -59,13 +59,13 @@ const InventoryList =({warehouseId}) => {
                     <p>QUANTITY</p>
                     <img className="invent__icons" src={dropdown} alt="sort" />
                 </div>
-                <div className="invent__title">
+                <div className="invent__title invent__title--mod">
                     <p>ACTIONS</p>
-                    <img className="invent__icons" src={dropdown} alt="sort" />
+                    <img className="invent__icons invent__icons--mod" src={dropdown} alt="sort" />
                 </div>
                 
             </div>
-            {
+            <div>{
                     activeInventory.map((inventory) =>{
                         return(
                         <article className="invent__tablet" >
@@ -74,16 +74,16 @@ const InventoryList =({warehouseId}) => {
                             <img className="invent__icons" src={right} alt=""/>
                         </div>
                         <div className="invent__item">{inventory.category}</div>
-                        <div className="invent__item">{statusOf}</div>
+                        <div className="invent__item">{inventory.status}</div>
                         <div className="invent__item">{inventory.quantity}</div>
-                        <div className="invent__item">
-                            <img className="invent__icons" src={edit} alt =""/>
-                            <img className="invent__icons" src={deletecon} alt =""/>
+                        <div className="invent__item invent__item--mod">
+                            <img className="invent__icons  invent__icons--mod" src={edit} alt =""/>
+                            <img className="invent__icons  invent__icons--mod" src={deletecon} alt =""/>
                         </div>
                         </article>
                         )
                     })
-            }
+            }</div>
 
             <div>
                 {

@@ -1,0 +1,40 @@
+@use "../../styles/partials/globals" as *;
+
+.details{
+    &__div{
+        display: flex; 
+    }
+    &__con{
+        display: flex;
+        padding-left: 1rem;
+    }
+    &__edit{
+        display: flex;
+        text-decoration: none;
+        align-items: center;
+        justify-content: space-around;
+    }
+    &__pencil{
+        width:25%;
+    }
+    &__des{
+        border-right: $slate solid 1px;
+        width: 50%;
+    }
+    &__button{
+        color:$white;
+        background-color: $red;
+        border-radius: 2rem;
+        border: $red;
+    }
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 1rem;
+        border-bottom: $slate solid 1px;
+    }
+    &__name{
+        display: flex;
+    }
+}

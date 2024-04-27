@@ -1,4 +1,4 @@
-//import './WarehouseDetails.scss'
+import './WarehouseDetailsPage.scss'
 import WarehouseDetails from "../../components/WarehouseDetails/WarehouseDetails"
 import InventoryList from '../../components/InventoryList/InventoryList'
 import { useParams } from "react-router-dom";

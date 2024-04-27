@@ -9,11 +9,22 @@
     gap: 1.25rem;
     }
     &__titlecon{
-        display: flex;
-        justify-content: space-around;
+        display: none;
+        justify-content: space-between;
+        background-color: $grey;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        width:100%;
+        @include tablet{
+            display: flex;
+        }
     }
     &__item{
         display: flex;
+        width:20%;
+        &--mod{
+            width:10%;
+        }
     }
     &__itemcon{
         display: flex;
@@ -22,15 +33,26 @@
             display: none;
         }
     }
+    &__icons{
+        width:10%;
+        &--mod{
+            width: 20%;
+        }
+    }
     &__tablet{
         display:none;
         @include tablet{
             display:flex;
             justify-content: space-between;
+            padding: 0 1rem;
         }
     }
     &__title{
         display: flex;
+        width:20%;
+        &--mod{
+            width:10%;
+        }
     }
     &__list{
         display: flex;

@@ -1,6 +1,5 @@
 import axios from 'axios'
 import "./WarehouseDetails.scss"
-import InventoryList from '../InventoryList/InventoryList'
 import back from "../../assets/icons/arrow_back-24px.svg"
 import {useState, useEffect} from 'react'
 
@@ -29,28 +28,30 @@ const WarehouseDetails = ({warehouseId}) => {
     return(
     <div>
         <div className="" >
-            <div>
+            <div className='details__header' >
                 <img src={back} alt="" />
                 <h1>{activeWh.warehouse_name}</h1>
             </div>
-            <div className="" >
-                <h3>WAREHOUSE ADDRESS:</h3>
-                <p>{activeWh.address}</p>
-                <br />
-                <p>{activeWh.city},{activeWh.country}</p>
-            </div>
-            <div>
+            <div className='details__div' >
                 <div className="" >
-                <h3>CONTACT NAME:</h3>
-                <p>{activeWh.contact.name}</p>
-                <br/>
-                <p>{activeWh.contact.position}</p>
+                    <h3>WAREHOUSE ADDRESS:</h3>
+                    <p>{activeWh.address}</p>
+                    <br />
+                    <p>{activeWh.city},{activeWh.country}</p>
                 </div>
-                <div className="" >
-                <h3>CONTACT INFORMATION:</h3>
-                <p>{activeWh.contact.phone}</p>
-                <br />
-                <p>{activeWh.contact.email}</p>
+                <div className='details__con' >
+                    <div className="" >
+                        <h3>CONTACT NAME:</h3>
+                        <p>{activeWh.contact.name}</p>
+                        <br/>
+                        <p>{activeWh.contact.position}</p>
+                    </div>
+                    <div className="" >
+                        <h3>CONTACT INFORMATION:</h3>
+                        <p>{activeWh.contact.phone}</p>
+                        <br />
+                        <p>{activeWh.contact.email}</p>
+                    </div>
                 </div>
             </div>
             
