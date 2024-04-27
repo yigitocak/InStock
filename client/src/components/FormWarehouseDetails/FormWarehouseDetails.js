@@ -1,56 +1,158 @@
+import { useState } from 'react';
+import { Link, Navigate } from 'react-router-dom';
+import './FormWarehouseDetails.scss';
+import axios from 'axios'
 
-import './FormWarehouseDetails.scss'
+const FormWarehouseDetails = ({warehouseId}) => {
 
-const FormWarehouseDetails = () => {
-    return(
-        <form className='form'>
+    const API_URL = 'http://localhost:8080/api'
+    
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.put(`${API_URL}/warehouses/${warehouseId}`, formData, {
+                headers: {'Content-Type': 'application/json'}
+            });
+            if (response.status === 200) {
+                alert('Warehouse details updated successfully')
+                
+            } else {
+                alert('Failed to update warehouse details')
+            }
+        } catch (error) {
+            console.error('Error:', error)
+            alert('An error occurred while updating warehouse details')
+        }
+    };
+
+    const [formData, setFormData] = useState(
+        {
+            warehouse_name: '',
+            address: '',
+            city: '',
+            country: '',
+            contact_name: '',
+            contact_position: '',
+            contact_phone: '',
+            contact_email: ''
+        });
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target
+        setFormData({ ...formData, [name]: value })
+    };
+
+
+    return (
+        <form className='form' onSubmit={handleSubmit}>
             <section className='form__bigContainer'>
-            <section className='form__warehouse'>
-                <h2>Warehouse Details</h2>
-                <div className='form__container'>
-                    <label htmlFor='warehouse name'>Warehouse Name</label>
-                    <input className='form__input' type='text' placeholder=''></input>
-                </div>
-                <div className='form__container'>
-                    <label htmlFor='address'>Street Address</label>
-                    <input className='form__input' type='text' placeholder=''></input>
-                </div>
-                <div className='form__container'>
-                    <label htmlFor='city'>City</label>
-                    <input className='form__input' type='text' placeholder=''></input>
-                </div>
-                <div className='form__container'>
-                    <label htmlFor='country'>Country</label>
-                    <input className='form__input' type='text' placeholder=''></input>
-                </div>
-            </section>
-            <div className='form__border'></div>
-            <section className='form__contact'>
-                <h2>Contact Details</h2>
-                <div className='form__container'>
-                    <label htmlFor='Contact name'>Contact Name</label>
-                    <input className='form__input' type='text' placeholder=''></input>
-                </div>
-                <div className='form__container'>
-                    <label htmlFor='Position'>Position</label>
-                    <input className='form__input' type='text' placeholder=''></input>
-                </div>
-                <div className='form__container'>
-                    <label htmlFor='Phone Number'>Phone Number</label>
-                    <input className='form__input' type='text' placeholder=''></input>
-                </div>
-                <div className='form__container'>
-                    <label htmlFor='email'>Email</label>
-                    <input className='form__input' type='text' placeholder=''></input>
-                </div>
-            </section>
+                <section className='form__warehouse'>
+                    <h2>Warehouse Details</h2>
+                    <div className='form__container'>
+                        <label htmlFor='warehouse_name'>Warehouse Name</label>
+                        <input
+                            className='form__input'
+                            type='text'
+                            name='warehouse_name'
+                            value={formData.warehouse_name}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
+                    <div className='form__container'>
+                        <label htmlFor='address'>Address</label>
+                        <input
+                            className='form__input'
+                            type='text'
+                            name='address'
+                            value={formData.address}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
+                    <div className='form__container'>
+                        <label htmlFor='city'>City</label>
+                        <input
+                            className='form__input'
+                            type='text'
+                            name='city'
+                            value={formData.city}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
+                    <div className='form__container'>
+                        <label htmlFor='country'>Country</label>
+                        <input
+                            className='form__input'
+                            type='text'
+                            name='country'
+                            value={formData.country}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
+                </section>
+                <div className='form__border'></div>
+                <section className='form__contact'>
+                    <h2>Contact Details</h2>
+                    <div className='form__container'>
+                        <label htmlFor='contact_name'>Contact Name</label>
+                        <input
+                            className='form__input'
+                            type='text'
+                            name='contact_name'
+                            value={formData.contact_name}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
+                    <div className='form__container'>
+                        <label htmlFor='contact_position'>Position</label>
+                        <input
+                            className='form__input'
+                            type='text'
+                            name='contact_position'
+                            value={formData.contact_position}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
+                    <div className='form__container'>
+                        <label htmlFor='contact_phone'>Phone Number</label>
+                        <input
+                            className='form__input'
+                            type='text'
+                            name='contact_phone'
+                            value={formData.contact_phone}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
+                    <div className='form__container'>
+                        <label htmlFor='contact_email'>Email</label>
+                        <input
+                            className='form__input'
+                            type='text'
+                            name='contact_email'
+                            value={formData.contact_email}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
+                </section>
             </section>
             <section className='form__buttons'>
-                <button className='form__button'>Cancel</button>
-                <button className='form__button form__button--blue'>Save</button>
+                <Link to='/'>
+                    <button className='form__button'>Cancel</button>
+                </Link>
+                <button 
+                    type='submit' 
+                    className='form__button form__button--blue'
+                > Save</button>
             </section>
         </form>
-    )
-}
+    );
+};
 
-export default FormWarehouseDetails
+export default FormWarehouseDetails;
