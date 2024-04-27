@@ -32,6 +32,7 @@
 
     &__arrow {
         padding-top: .2rem;
+        cursor: pointer;
     }
 
     &__title {
@@ -40,5 +41,8 @@
         font-size: 1.5rem;
         font-family: "Titillium Web", open, sans-serif;
         text-align: center;
+        @include desktop {
+            font-size: 1.65rem;
+        }
     }
 }

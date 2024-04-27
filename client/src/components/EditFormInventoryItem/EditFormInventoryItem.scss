@@ -31,7 +31,8 @@
         font-weight: 600;
         display: inline-block;
         padding-bottom: 1.25rem;
-        @include tablet {
+        @include desktop {
+            font-size: 1.4rem;
             
         }
     }
@@ -49,6 +50,9 @@
         color: $black;
         margin: 0;
         font-weight: 600;
+        @include desktop {
+            font-size: .875rem;
+        }
     }
 
     &__input {
@@ -118,6 +122,9 @@
         display: flex;
         gap: 5rem;
         align-items: center;
+        @include desktop {
+            gap: 2.2rem;
+        }
     }
 
     &__radio-button {
@@ -169,6 +176,7 @@
         padding-bottom: .5rem;
         width: 8.2rem;
         height: 2.25rem;
+        cursor: pointer;
         @include tablet {
             width: 3.75rem;
             margin-top: .5rem;
@@ -181,6 +189,25 @@
         border: none;
         @include tablet {
             margin-right: 2rem;
+        }
+    }
+
+    &__quantity {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+
+    &__input-q {
+        border: 1px solid $cloud;
+        border-radius: 15px;
+        width: 100%;
+        height: 1.85rem;
+        padding: 0 1rem;
+        margin-top: .2rem;
+
+        @include desktop {
+            width: 22%;
         }
     }
 }
