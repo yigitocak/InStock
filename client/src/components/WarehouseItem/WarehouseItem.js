@@ -6,7 +6,7 @@ import arrow from '../../assets/icons/chevron_right-24px.svg'
 import {useState} from "react";
 import {DeleteWarehouseModal} from "../DeleteWarehouseModal/DeleteWarehouseModal";
 
-const WarehouseItem = ({name, address, city, country, contactName, contactPhone, contactEmail}) => {
+const WarehouseItem = ({warehouseId, name, address, city, country, contactName, contactPhone, contactEmail}) => {
     const [modalOpen, setModalOpen] = useState(false);
     const toggleModal = () => setModalOpen(!modalOpen);
 
@@ -17,7 +17,9 @@ const WarehouseItem = ({name, address, city, country, contactName, contactPhone,
                     <section className='item__left'>
                         <div className='item__container'>
                             <p className='item__label'>WAREHOUSE</p>
-                            <p className='item__name'>{name}</p>
+                            <Link to={`warehouses/${warehouseId}`} className='item__link'>
+                                <p className='item__name'>{name}</p>
+                            </Link>
                         </div>
                         <div className='item__container'>
                             <p className='item__label'>ADDRESS</p>
@@ -39,14 +41,17 @@ const WarehouseItem = ({name, address, city, country, contactName, contactPhone,
                 </section>
                 <section className='item__actions'>
                     <button className="item__button" onClick={toggleModal}><img src={trash} alt="Delete"/></button>
-                    <Link to='/warehouses/:warehouseId/edit'>
+                    <Link to={`/warehouses/${warehouseId}/edit`}>
                         <img src={pencil} alt='pencil'/>
                     </Link>
                 </section>
             </article>
+            
             <article className='otherItem'>
                 <div className='otherItem__container--first'>
+                <Link to='warehouses/:warehouseId' className='item__link'>
                     <p className='item__name'>{name}</p>
+                </Link>
                     <img src={arrow} alt='arrow'/>
                 </div>
                 <div className='otherItem__container'>
@@ -62,7 +67,7 @@ const WarehouseItem = ({name, address, city, country, contactName, contactPhone,
                 </div>
                 <section className='item__actions'>
                     <button className="item__button" onClick={toggleModal}><img src={trash} alt="Delete"/></button>
-                    <Link to='/warehouses/:warehouseId/edit'>
+                    <Link to={`/warehouses/${warehouseId}/edit`}>
                         <img src={pencil} alt='pencil'/>
                     </Link>
                 </section>

@@ -1,8 +1,11 @@
 import './WarehouseEdit.scss'
 import arrow from '../../assets/icons/arrow_back-24px.svg'
 import FormWarehouseDetails from '../../components/FormWarehouseDetails/FormWarehouseDetails'
+import { useParams } from 'react-router-dom'
 
 const WarehouseEdit = () => {
+
+const {warehouseId} = useParams()
 
     return (
         <main className='edit'>
@@ -12,7 +15,9 @@ const WarehouseEdit = () => {
                     <h1 className='edit__title'>Edit Warehouse</h1>
                 </div>
                 
-                <FormWarehouseDetails />
+                <FormWarehouseDetails 
+                    warehouseId={warehouseId}
+                />
             </section>
         </main>
     )
