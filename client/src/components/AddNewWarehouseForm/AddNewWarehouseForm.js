@@ -56,7 +56,7 @@ const AddNewWarehouseForm = () => {
                 <section className='form__warehouse'>
                     <h2 className="form__subheader">Warehouse Details</h2>
                     <div className='form__container'>
-                        <label htmlFor='warehouse_name'>Warehouse Name</label>
+                        <label className="form__label" htmlFor='warehouse_name'>Warehouse Name</label>
                         <input
                             className='form__input'
                             type='text'
@@ -66,7 +66,7 @@ const AddNewWarehouseForm = () => {
                         />
                     </div>
                     <div className='form__container'>
-                        <label htmlFor='address'>Street Address</label>
+                        <label className="form__label" htmlFor='address'>Street Address</label>
                         <input
                             className='form__input'
                             type='text'
@@ -76,7 +76,7 @@ const AddNewWarehouseForm = () => {
                         />
                     </div>
                     <div className='form__container'>
-                        <label htmlFor='city'>City</label>
+                        <label className="form__label" htmlFor='city'>City</label>
                         <input
                             className='form__input'
                             type='text'
@@ -86,7 +86,7 @@ const AddNewWarehouseForm = () => {
                         />
                     </div>
                     <div className='form__container'>
-                        <label htmlFor='country'>Country</label>
+                        <label className="form__label" htmlFor='country'>Country</label>
                         <input
                             className='form__input'
                             type='text'
@@ -100,7 +100,7 @@ const AddNewWarehouseForm = () => {
                 <section className='form__contact'>
                     <h2 className="form__subheader">Contact Details</h2>
                     <div className='form__container'>
-                        <label htmlFor='contact_name'>Contact Name</label>
+                        <label className="form__label" htmlFor='contact_name'>Contact Name</label>
                         <input
                             className='form__input'
                             type='text'
@@ -110,7 +110,7 @@ const AddNewWarehouseForm = () => {
                         />
                     </div>
                     <div className='form__container'>
-                        <label htmlFor='contact_position'>Position</label>
+                        <label className="form__label" htmlFor='contact_position'>Position</label>
                         <input
                             className='form__input'
                             type='text'
@@ -120,7 +120,7 @@ const AddNewWarehouseForm = () => {
                         />
                     </div>
                     <div className='form__container'>
-                        <label htmlFor='contact_phone'>Phone Number</label>
+                        <label className="form__label" htmlFor='contact_phone'>Phone Number</label>
                         <input
                             className='form__input'
                             type='text'
@@ -130,7 +130,7 @@ const AddNewWarehouseForm = () => {
                         />
                     </div>
                     <div className='form__container'>
-                        <label htmlFor='contact_email'>Email</label>
+                        <label className="form__label" htmlFor='contact_email'>Email</label>
                         <input
                             className='form__input'
                             type='text'

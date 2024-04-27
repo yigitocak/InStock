@@ -4,13 +4,17 @@
     display: flex;
     flex-direction: column;
     background-color: $grey;
+    @include tablet {
+        padding-bottom: 10rem;
+    }
+    @include desktop {
+        padding-bottom: 3rem;
+    }
 
     &__container {
         background-color: $white;
         margin: 1rem;
         margin-top: -3rem;
-        border: 1px solid $white;
-        box-shadow: $white;
         border-radius: 2px;
 
         @include tablet {

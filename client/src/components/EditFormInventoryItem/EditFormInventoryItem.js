@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import './EditFormInventoryItem.scss';
 import arrowDrop from '../../assets/icons/arrow_drop_down-24px.svg';
 
 const EditFormInventoryItem = ({ item }) => {
     const navigate = useNavigate();
+    const { id } = useParams();
     const [categories, setCategories] = useState([]);
     const [warehouses, setWarehouses] = useState([]);
     const [status, setStatus] = useState('');
@@ -45,23 +46,25 @@ const EditFormInventoryItem = ({ item }) => {
         setStatus(newStatus);
     };
 
+    const [formData, setFormData] = useState({
+        item_name: item.item_name,
+        description: item.description,
+        category: item.category,
+        quantity: item.quantity,
+        warehouse_name: item.warehouse_name,
+    });
+
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setFormData({...formData, [name]: value });
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
-
-        const itemData = {
-            name: item.item_name,
-            description: item.description,
-            category: item.category,
-            quantity: item.quantity,
-            warehouse: item.warehouse_name
-        };
-
         try {
-            const response = await axios.put(`http://localhost:8080/inventories/${item.id}`, itemData);
-
-            if (response.status === 201) {
-                alert("Item successfully Edited!");
-                navigate("/");
+            const response = await axios.put(`http://localhost:8080/api/inventories/${id}`, formData);
+            if (response.status === 200) {
+                navigate("/inventories");
             } else {
                 alert("Failed to edit item. Please try again.");
             }
@@ -78,21 +81,22 @@ const EditFormInventoryItem = ({ item }) => {
                     <section className='edit__item'>
                         <h2 className='edit__title'>Item Details</h2>
                         <div className='edit__form'>
-                            <label htmlFor='item-name' className='edit__label'>Item Name</label>
-                            <input id='item-name' className='edit__input' type='text' defaultValue={item.item_name} />
+                            <label htmlFor='item_name' className='edit__label'>Item Name</label>
+                            <input id='item_name' className='edit__input' type='text' defaultValue={item.item_name} value={formData.item_name} onChange={handleInputChange} required/>
                         </div>
                         <div className='edit__form'>
                             <label htmlFor='description' className='edit__label'>Description</label>
-                            <textarea id='description' className='edit__input-description' type='text' defaultValue={item.description} />
+                            <textarea id='description' className='edit__input-description' type='text' defaultValue={item.description} value={formData.description} onChange={handleInputChange} required />
                         </div>
                         <div className='edit__form edit__select-wrapper'>
                             <label htmlFor='category' className='edit__label'>Category</label>
-                            <select id='category' className='edit__select' defaultValue={item.category}>
-                            <option value="">{item.category}</option>
+                            <select id='category' className='edit__select' value={formData.category} onChange={handleInputChange}>
+                                <option value="">{item.category}</option>
                                 {categories.map((category, index) => (
+                                     category !== item.category && (
                                     <option key={index} value={category}>{category}</option>
+                                    )
                                 ))}
-                                
                             </select>
                             <img className='edit__arrowdrop' src={arrowDrop} alt='arrow drop down' />
                         </div>
@@ -128,16 +132,16 @@ const EditFormInventoryItem = ({ item }) => {
                         {status === 'inStock' && (
                             <div className='edit__quantity'>
                                 <label htmlFor='item-name' className='edit__label'>Quantity</label>
-                                <input id='item-name' className='edit__input-q' type='text' defaultValue={item.quantity} />
+                                <input id='item-name' className='edit__input-q' type='text' defaultValue={item.quantity} value={formData.quantity} onChange={handleInputChange} required />
                             </div>
                         )}
                         <div className='edit__container-2'>
-                        <label htmlFor='warehouse_name' className='edit__label'>Warehouse</label>
-                            <select id='warehouse_name' className='edit__select' defaultValue={item.warehouse_name}>
+                            <label htmlFor='warehouse_name' className='edit__label'>Warehouse</label>
+                            <select id='warehouse_name' className='edit__select' value={formData.warehouse_name} onChange={handleInputChange}>
                                 <option value="">{item.warehouse_name}</option>
                                 {warehouses.map((warehouse, index) => (
                                     warehouse !== item.warehouse_name && (
-                                    <option key={index} value={warehouse}>{warehouse}</option>
+                                        <option key={index} value={warehouse}>{warehouse}</option>
                                     )
                                 ))}
                             </select>
