@@ -22,6 +22,7 @@
             margin: -4rem 6rem 2rem 6rem;
         }
     }
+
     &__top {
         display: flex;
         padding-left: 1.3rem;
@@ -34,14 +35,19 @@
     &__arrow {
         padding-top: .2rem;
         cursor: pointer;
+
+        @include desktop {
+            padding-left: 1rem;
+        }
     }
 
     &__title {
         color: $black;
         font-weight: 600;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         font-family: "Titillium Web", open, sans-serif;
         text-align: center;
+
         @include desktop {
             font-size: 1.65rem;
         }
