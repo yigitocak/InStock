@@ -81,6 +81,15 @@
         height: 2rem;
         padding-left: 1rem;
         font-size: .68rem;
+        &:focus {
+            border: 1.5px solid $indigo; 
+            outline: none;
+        }
+
+        &:invalid {
+            border: 1.5px solid $red; 
+            outline: none;
+        }
     }
     
     &__buttons {

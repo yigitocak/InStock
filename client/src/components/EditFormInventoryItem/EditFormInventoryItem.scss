@@ -66,6 +66,16 @@
         padding: 0 1rem;
         margin-top: .2rem;
         margin-bottom: 1rem;
+
+        &:focus {
+            border: 1.5px solid $indigo; 
+            outline: none;
+        }
+
+        &:invalid {
+            border: 1.5px solid $red; 
+            outline: none;
+        }
     }
 
     &__form {
@@ -92,6 +102,16 @@
         margin-bottom: 1rem;
         font-family: "Titillium Web", open, sans-serif;
         color: $black;
+
+        &:focus {
+            border: 1.5px solid $indigo; 
+            outline: none;
+        }
+
+        &:invalid {
+            border: 1.5px solid $red; 
+            outline: none;
+        }
     }
 
     &__select {
@@ -103,6 +123,16 @@
         margin-top: .2rem;
         margin-bottom: .5rem;
         appearance: none;
+
+        &:focus {
+            border: 1.5px solid $indigo; 
+            outline: none;
+        }
+
+        &:invalid {
+            border: 1.5px solid $red; 
+            outline: none;
+        }
     }
 
     &__availability {
@@ -209,6 +239,11 @@
         height: 1.85rem;
         padding: 0 1rem;
         margin-top: .2rem;
+
+        &:focus {
+            border: 1.5px solid $indigo; 
+            outline: none;
+        }
 
         @include desktop {
             width: 22%;
