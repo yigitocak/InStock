@@ -4,7 +4,10 @@ import WarehouseItem from '../../components/WarehouseItem/WarehouseItem'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import WarehouseNav from '../../components/WarehouseNav/WarehouseNav'
+
+
 const Warehouses = () => {
+
     const [warehouseList, setWarehouseList] = useState([])
     const API_URL = "http://localhost:8080/api"
     useEffect(() => {
@@ -27,6 +30,7 @@ const Warehouses = () => {
                     return (
                         <WarehouseItem
                             key={warehouse.id}
+                            warehouseId={warehouse.id}
                             name={warehouse.warehouse_name}
                             address={warehouse.address}
                             city={warehouse.city}
