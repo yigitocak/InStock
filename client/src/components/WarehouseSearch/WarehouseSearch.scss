@@ -31,7 +31,7 @@
     &__container {
         display: flex;
         border: 1px solid $cloud;
-        border-radius: 15px;
+        border-radius: 25px;
         padding-top: .25rem;
         padding-bottom: .25rem;
         padding-left: 1rem;
@@ -40,7 +40,7 @@
         height: 3rem;
 
         @include tablet {
-            width: 35%;
+            width: 37%;
             align-self: center;
         }
     }
@@ -67,5 +67,16 @@
 
     @include tablet {
         flex-wrap: nowrap;
+    }
+}
+
+.addLink {
+    width: 100%;
+
+    @include tablet {
+        width: 37%;
+    }
+    @include desktop {
+        width: 20%;
     }
 }

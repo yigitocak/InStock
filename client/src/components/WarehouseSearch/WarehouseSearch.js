@@ -13,7 +13,7 @@ const WarehouseSearch = () => {
                     <img src={loop} className='warehouseForm__loopIcon'></img>
                 </div>
             </form> 
-            <Link to='/warehouses/add'>
+            <Link to='/warehouses/add' className='addLink'>
                 <button className='newButton'>+ Add New Warehouse</button>            
             </Link>   
         </section>
