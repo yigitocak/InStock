@@ -5,7 +5,7 @@ import deletecon from "../../assets/icons/delete_outline-24px.svg"
 import right from "../../assets/icons/chevron_right-24px.svg"
 import dropdown from "../../assets/icons/sort-24px.svg"
 import {useState, useEffect} from 'react'
-import { Link } from "react-router-dom";
+import { NavLink, Link, useParams} from "react-router-dom";
 
 const InventoryList =({warehouseId}) => {
 
@@ -13,6 +13,7 @@ const InventoryList =({warehouseId}) => {
     const [activeInventory, setactiveInventory] = useState(null)
 
     useEffect(() => {
+
         const getInventory = async() => {
             try{
                 const response = await axios.get(`${ApiUrl}/warehouses/${warehouseId}/inventories`)
@@ -41,7 +42,7 @@ const InventoryList =({warehouseId}) => {
     }
     console.log(activeInventory)
     return (
-        <div className="invent">
+        <div className="invent__h">
             <div className="invent__titlecon">
                 <div className="invent__title" >
                     <p>INVENTORY ITEM</p>
@@ -67,20 +68,21 @@ const InventoryList =({warehouseId}) => {
             </div>
             <div>{
                     activeInventory.map((inventory) =>{
+                        
                         return(
-                        <article className="invent__tablet" >
-                        <div className="invent__item">
-                            <p>{inventory.item_name}</p>
-                            <img className="invent__icons" src={right} alt=""/>
-                        </div>
-                        <div className="invent__item">{inventory.category}</div>
-                        <div className="invent__item">{inventory.status}</div>
-                        <div className="invent__item">{inventory.quantity}</div>
-                        <div className="invent__item invent__item--mod">
-                            <img className="invent__icons  invent__icons--mod" src={edit} alt =""/>
-                            <img className="invent__icons  invent__icons--mod" src={deletecon} alt =""/>
-                        </div>
-                        </article>
+                            <article className="invent__tablet" >
+                                <NavLink to={`/inventory/${inventory.id}`} className="invent__item invent__item--nav">
+                                    <p className="invent__object" >{inventory.item_name}</p>
+                                    <img className="invent__icons invent__icons--right" src={right} alt=""/>
+                                </NavLink>
+                                <div className="invent__item">{inventory.category}</div>
+                                <div className='invent__item'><p className={`${inventory.quantity?'in' : 'out'}`}>{inventory.status}</p></div>
+                                <div className="invent__item">{inventory.quantity}</div>
+                                <div className="invent__item invent__item--mod">
+                                    <img className="invent__icons  invent__icons--mod" src={edit} alt =""/>
+                                    <img className="invent__icons  invent__icons--mod" src={deletecon} alt =""/>
+                                </div>
+                            </article>
                         )
                     })
             }</div>
@@ -93,11 +95,11 @@ const InventoryList =({warehouseId}) => {
                             <section className="invent__list">
                                 <section className="invent__des">
                                     <div className="invent__container">
-                                        <p className="invent__label" >INVENTORY ITEM</p>
-                                        <div className="invent__item">
+                                        <p>INVENTORY ITEM</p>
+                                        <NavLink  className="invent__nav" to={`/inventory/${inventory.id}/`}>
                                             <p>{inventory.item_name}</p>
                                             <img className="invent__icons" src={right} alt=""/>
-                                        </div>
+                                        </NavLink>
                                     </div>
                                     <div className="invent__container">
                                         <p className="invent__label" >CATEGORY</p>
@@ -107,7 +109,7 @@ const InventoryList =({warehouseId}) => {
                                 <section className="invent__available">
                                     <div className="invent__container">
                                         <p className="invent__label" >STATUS</p>
-                                        <p className="invent__item">{inventory.status}</p>
+                                        <p className={`invent__item ${inventory.quantity?'in' : 'out'}`}>{inventory.status}</p>
                                     </div>
                                     <div className="invent__container">
                                         <p className="invent__label" >QUANTITY</p>
@@ -116,7 +118,7 @@ const InventoryList =({warehouseId}) => {
                                 </section>
                             </section>
                                 <section className='invent__actions'>
-                                    <button className="invent__button" >
+                                    <button className="invent__buttond" >
                                         <img src={deletecon} alt="Delete"/>
                                     </button>
                                     <Link to='/api/warehouses'>

@@ -30,7 +30,7 @@ const InventoryDetails = ({inventoryId}) => {
     return(
     <div>
         <div className="" >
-            <div className='details__header' >
+            <div className='details__headers' >
                 <div className='details__name' >
                     <NavLink to="/inventory" >
                     <img src={back} alt="" />

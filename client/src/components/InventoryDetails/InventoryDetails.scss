@@ -16,6 +16,7 @@
     }
     &__pencil{
         width:25%;
+        //color: $white;
     }
     &__des{
         border-right: $slate solid 1px;
@@ -27,7 +28,7 @@
         border-radius: 2rem;
         border: $red;
     }
-    &__header{
+    &__headers{
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -36,5 +37,7 @@
     }
     &__name{
         display: flex;
+        align-items: center;
+        padding-left: 1rem;
     }
 }

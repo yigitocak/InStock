@@ -4,15 +4,36 @@
     &__con{
         display: flex;
         justify-content: space-between;
-        width:50%;
+        @include tablet{
+            width:50%;
+        }
     }
     &__div{
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
         padding: 0 2rem;
+        @include tablet{
+            flex-direction: row;
+        }
     }
-    &__header{
+    &__tit{
         display: flex;
         padding-left: 1rem;
+       
+    }
+    &__icons{
+        fill: $white;
+    }
+    &__icn{
+        background-color: $indigo;
+        color: $white;
+    }
+    &__h{
+        display: flex;
+        justify-content: space-between;
+        padding-right: 1rem;
+        border-bottom: $slate solid 0.5px;
+        align-items: center;
     }
 }

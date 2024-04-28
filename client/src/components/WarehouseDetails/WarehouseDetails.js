@@ -1,6 +1,7 @@
 import axios from 'axios'
 import "./WarehouseDetails.scss"
 import back from "../../assets/icons/arrow_back-24px.svg"
+import edit from "../../assets/icons/edit-24px.svg"
 import {useState, useEffect} from 'react'
 
 
@@ -28,9 +29,14 @@ const WarehouseDetails = ({warehouseId}) => {
     return(
     <div>
         <div className="" >
-            <div className='details__header' >
-                <img src={back} alt="" />
-                <h1>{activeWh.warehouse_name}</h1>
+            <div className='details__h'>
+                <div className='details__tit' >
+                    <img src={back} alt="" />
+                    <h1>{activeWh.warehouse_name}</h1>
+                </div>
+                <div className='details__icn'>
+                    <img src={edit} className='details__icons' alt='edit icon'/>
+                </div>
             </div>
             <div className='details__div' >
                 <div className="" >
