@@ -6,8 +6,11 @@ import right from "../../assets/icons/chevron_right-24px.svg"
 import dropdown from "../../assets/icons/arrow_drop_down-24px.svg"
 import { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
+import {DeleteWarehouseModal} from "../DeleteWarehouseModal/DeleteWarehouseModal";
 
 const InventoryTab =() => {
+    const [modalOpen, setModalOpen] = useState(false);
+    const toggleModal = () => setModalOpen(!modalOpen);
 
     const [inventList, setinventList] = useState(null)
     const ApiUrl = "http://localhost:8080/api"
@@ -85,12 +88,14 @@ const InventoryTab =() => {
                                     <Link to={`/inventory/${inventory.id}/edit`}>
                                         <img className="invent__icons  invent__icons--mod" src={edit} alt='edit'/>
                                     </Link>
-                                    <button className="invent__buttond" >
+                                    <button className="invent__buttond" onClick={toggleModal} >
                                             <img className="invent__icons  invent__icons--mod" src={deletecon} alt="Delete"/>
                                     </button>
                                 </div>
                             </article>
+                            
                             )
+                            
                     })
                 }
 
@@ -130,7 +135,7 @@ const InventoryTab =() => {
                                 </section>
                             </section>
                                 <section className='invent__actions'>
-                                    <button className="invent__buttond" >
+                                    <button className="invent__buttond" onClick={toggleModal} >
                                         <img src={deletecon} alt="Delete"/>
                                     </button>
                                     <Link to={`/inventory/${inventory.id}/edit`}>
@@ -143,7 +148,7 @@ const InventoryTab =() => {
                 }
             </div>
         </div>
-
+       
     )
 }
  export default InventoryTab;

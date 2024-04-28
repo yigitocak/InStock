@@ -45,8 +45,8 @@ const InventoryDetails = ({inventoryId}) => {
 
                 </div>
             </div>
-            <div className='details__div' >
-                <div className="details__des" >
+            <div className='details__divs' >
+                <div className="details__dess" >
                     <div>
                         <div>
                             <h3>ITEM DESCRIPTION:</h3>
@@ -58,7 +58,7 @@ const InventoryDetails = ({inventoryId}) => {
                         </div>
                     </div>
                 </div>
-                <div className='details__con' >
+                <div className='details__cons' >
                     <div>
                         <div className="" >
                             <h3>STATUS:</h3>

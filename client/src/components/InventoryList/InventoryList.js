@@ -6,8 +6,11 @@ import right from "../../assets/icons/chevron_right-24px.svg"
 import dropdown from "../../assets/icons/sort-24px.svg"
 import {useState, useEffect} from 'react'
 import { NavLink, Link, useParams} from "react-router-dom";
+import {DeleteWarehouseModal} from "../DeleteWarehouseModal/DeleteWarehouseModal";
 
 const InventoryList =({warehouseId}) => {
+    const [modalOpen, setModalOpen] = useState(false);
+    const toggleModal = () => setModalOpen(!modalOpen);
 
     const ApiUrl = "http://localhost:8080/api"
     const [activeInventory, setactiveInventory] = useState(null)
@@ -82,11 +85,12 @@ const InventoryList =({warehouseId}) => {
                                     <Link to='/inventory/:id/edit'>
                                         <img className="invent__icons  invent__icons--mod" src={edit} alt='edit'/>
                                     </Link>
-                                    <button className="invent__buttond" >
+                                    <button className="invent__buttond" onClick={toggleModal} >
                                             <img className="invent__icons  invent__icons--mod" src={deletecon} alt="Delete"/>
                                     </button>
                                 </div>
                             </article>
+                        {modalOpen && <DeleteWarehouseModal warehouseName="placeholder" closeModal={toggleModal} />}
                         )
                     })
             }</div>
@@ -122,7 +126,7 @@ const InventoryList =({warehouseId}) => {
                                 </section>
                             </section>
                                 <section className='invent__actions'>
-                                    <button className="invent__buttond" >
+                                    <button className="invent__buttond" onClick={toggleModal} >
                                         <img src={deletecon} alt="Delete"/>
                                     </button>
                                     <Link to='/api/warehouses'>
@@ -131,8 +135,11 @@ const InventoryList =({warehouseId}) => {
                                 </section>
                             
                         </article>
+                        
                     )})
+                
                 }
+{modalOpen && <DeleteWarehouseModal warehouseName="placeholder" closeModal={toggleModal} />}
             </div>
         </div>
     )
