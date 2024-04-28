@@ -1,0 +1,252 @@
+@use '../../styles/partials/globals' as *;
+
+.edit {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: $white;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        box-shadow: 0px 2px 5px 0px #13182C1A;
+    }
+
+    &__item {
+        padding: 1rem;
+        @include tablet {
+            flex:3;
+            padding: 0 2rem;
+            border-right: 1px solid $cloud; 
+            margin: 1rem 0;
+        }
+    }
+
+    &__title {
+        font-family: "Titillium Web", open, sans-serif;
+        font-size: 1.18rem;
+        color: $black;
+        margin: 0;
+        font-weight: 600;
+        display: inline-block;
+        padding-bottom: 1.25rem;
+        @include desktop {
+            font-size: 1.4rem;
+            
+        }
+    }
+
+    &__main {
+        @include tablet {
+            padding-bottom: 10rem;
+            background-color: $grey;
+        }
+        @include desktop {
+            padding-bottom: 4rem;
+        }
+    }
+
+    &__label {
+        font-family: "Titillium Web", open, sans-serif;
+        font-size: .75rem;
+        color: $black;
+        margin: 0;
+        font-weight: 600;
+        @include desktop {
+            font-size: .875rem;
+        }
+    }
+
+    &__input {
+        border: 1px solid $cloud;
+        border-radius: 15px;
+        width: 100%;
+        height: 1.87rem;
+        padding: 0 1rem;
+        margin-top: .2rem;
+        margin-bottom: 1rem;
+
+        &:focus {
+            border: 1.5px solid $indigo; 
+            outline: none;
+        }
+
+        &:invalid {
+            border: 1.5px solid $red; 
+            outline: none;
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    &__arrowdrop {
+        position: absolute;
+        top: 62%;
+        right: 10px;
+        transform: translateY(-50%);
+        width: 1.5rem;
+    }
+
+    &__input-description {
+        border: 1px solid $cloud;
+        border-radius: 15px;
+        width: 100%;
+        height: 6rem;
+        padding: 0 1rem;
+        margin-top: .2rem;
+        margin-bottom: 1rem;
+        font-family: "Titillium Web", open, sans-serif;
+        color: $black;
+
+        &:focus {
+            border: 1.5px solid $indigo; 
+            outline: none;
+        }
+
+        &:invalid {
+            border: 1.5px solid $red; 
+            outline: none;
+        }
+    }
+
+    &__select {
+        border: 1px solid $cloud;
+        border-radius: 15px;
+        width: 100%;
+        height: 1.9rem;
+        padding: 0 1rem;
+        margin-top: .2rem;
+        margin-bottom: .5rem;
+        appearance: none;
+
+        &:focus {
+            border: 1.5px solid $indigo; 
+            outline: none;
+        }
+
+        &:invalid {
+            border: 1.5px solid $red; 
+            outline: none;
+        }
+    }
+
+    &__availability {
+        border-top: 1px solid $cloud;
+        padding: 1rem;
+        @include tablet {
+            border: none;
+            flex:3;
+            padding: 1rem 2rem;
+        }
+    }
+
+    &__container-2 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+        position: relative;
+    }
+
+    &__radio {
+        display: flex;
+        gap: 5rem;
+        align-items: center;
+        @include desktop {
+            gap: 2.2rem;
+        }
+    }
+
+    &__radio-button {
+        margin-right: .4rem;
+    }
+
+    &__radio-label {
+        font-size: .6875rem;
+        font-family: "Titillium Web", open, sans-serif;
+        font-weight: 400;
+        color: $slate;
+        margin-bottom: .3rem;
+    }
+
+    &__status-selector input[type="radio"]:checked+label {
+        color: $black;
+        border-color: $indigo;
+    }
+
+    &__tablet {
+        @include tablet {
+            display: flex;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: 1rem;
+        padding-top: .5rem;
+        padding-bottom: 1rem;
+        background-color: $grey;
+        @include tablet {
+            justify-content: end;
+        }
+    }
+
+    &__button {
+        border: 1px solid $cloud;
+        font-family: "Titillium Web", open, sans-serif;
+        border-radius: 1.25rem;
+        color: $slate;
+        text-align: center;
+        font-weight: 600;
+        background-color: $white;
+        font-size: .75rem;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+        width: 8.2rem;
+        height: 2.25rem;
+        cursor: pointer;
+        @include tablet {
+            width: 3.75rem;
+            margin-top: .5rem;
+        }
+    }
+
+    &__button--blue {
+        background-color: $indigo;
+        color: $white;
+        border: none;
+        @include tablet {
+            margin-right: 2rem;
+        }
+    }
+
+    &__quantity {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+
+    &__input-q {
+        border: 1px solid $cloud;
+        border-radius: 15px;
+        width: 100%;
+        height: 1.85rem;
+        padding: 0 1rem;
+        margin-top: .2rem;
+
+        &:focus {
+            border: 1.5px solid $indigo; 
+            outline: none;
+        }
+
+        @include desktop {
+            width: 22%;
+        }
+    }
+}
