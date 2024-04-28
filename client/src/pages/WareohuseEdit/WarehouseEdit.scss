@@ -29,10 +29,15 @@
         padding-left: 1rem;
         gap: .5rem;
         border-bottom: 1px solid $cloud;
-        display: flex;
         align-items: center;
+        height: 4rem;
     }
     &__link {
         display: flex;
+        align-items: center;
+    }
+    &__title {
+        align-self: center;
+       
     }
 }

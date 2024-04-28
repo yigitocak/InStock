@@ -27,7 +27,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
     };
 
 
-    const [warehouseOptions, setWarehouseOptions] = useState([]);
+    const [warehouseOptions, setWarehouseOptions] = useState(null);
     useEffect(() => {
     const fetchWarehouses = async () => {
       try {
@@ -41,6 +41,16 @@ const FormWarehouseDetails = ({warehouseId}) => {
     };
     fetchWarehouses();
     }, [warehouseId]);
+
+
+    const wName = warehouseOptions ? warehouseOptions.warehouse_name : null
+    const wAddress = warehouseOptions ? warehouseOptions.address : null
+    const wcity = warehouseOptions ? warehouseOptions.city : null
+    const wCountry = warehouseOptions ? warehouseOptions.country : null
+    const wContactName = warehouseOptions ? warehouseOptions.contact.name : null
+    const wContactPos = warehouseOptions ? warehouseOptions.contact.position : null
+    const wContactPHone = warehouseOptions ? warehouseOptions.contact.phone : null
+    const wContactEmail = warehouseOptions ? warehouseOptions.contact.email : null
 
     const [formData, setFormData] = useState(
         {
@@ -73,7 +83,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             name='warehouse_name'
                             value={formData.warehouse_name}
                             onChange={handleInputChange}
-                            placeholder={warehouseOptions.warehouse_name}
+                            placeholder={wName}
                             required
                         />
                     </div>
@@ -85,7 +95,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             name='address'
                             value={formData.address}
                             onChange={handleInputChange}
-                            placeholder={warehouseOptions.address}
+                            placeholder={wAddress}
                             required
                         />
                     </div>
@@ -97,7 +107,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             name='city'
                             value={formData.city}
                             onChange={handleInputChange}
-                            placeholder={warehouseOptions.city}
+                            placeholder={wcity}
                             required
                         />
                     </div>
@@ -109,7 +119,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             name='country'
                             value={formData.country}
                             onChange={handleInputChange}
-                            placeholder={warehouseOptions.country}
+                            placeholder={wCountry}
                             required
                         />
                     </div>
@@ -125,7 +135,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             name='contact_name'
                             value={formData.contact_name}
                             onChange={handleInputChange}
-                            placeholder={warehouseOptions.contact.name}
+                            placeholder={wContactName}
                             required
                         />
                     </div>
@@ -137,7 +147,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             name='contact_position'
                             value={formData.contact_position}
                             onChange={handleInputChange}
-                            placeholder={warehouseOptions.contact.position}
+                            placeholder={wContactPos}
                             required
                         />
                     </div>
@@ -149,7 +159,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             name='contact_phone'
                             value={formData.contact_phone}
                             onChange={handleInputChange}
-                            placeholder={warehouseOptions.contact.phone}
+                            placeholder={wContactPHone}
                             required
                         />
                     </div>
@@ -161,7 +171,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             name='contact_email'
                             value={formData.contact_email}
                             onChange={handleInputChange}
-                            placeholder={warehouseOptions.contact.email}
+                            placeholder={wContactEmail}
                             required
                         />
                     </div>
