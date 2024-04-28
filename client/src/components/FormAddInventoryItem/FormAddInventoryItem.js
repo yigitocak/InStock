@@ -103,7 +103,8 @@ const FormAddInventoryItem = () => {
                         <textarea className='addForm__input-description' 
                             type="text" name="description" 
                             value={formData.description} 
-                            onChange={handleChange} />
+                            onChange={handleChange}
+                            placeholder="Please add a brief description..." />
                     </div>
                     <div className='addForm__form addForm__select-wrapper'>
                         <label htmlFor='category' className='addForm__label'>Category</label>
@@ -112,7 +113,7 @@ const FormAddInventoryItem = () => {
                             value={formData.category} 
                             onChange={handleChange}
                         >
-                            <option value="">Select Category</option>
+                            <option value="">Please select</option>
                             {categories.map((category, index) => (
                             <option key={category.id || index} value={category.id}>{category}</option>
                             ))}
@@ -164,7 +165,7 @@ const FormAddInventoryItem = () => {
                     <div className='addForm__container-2'>
                         <label htmlFor='warehouse name' className='addForm__label'>Warehouse</label>
                         <select id='warehouse_name' className='addForm__select' name='warehouse_id' value={formData.warehouse_id} onChange={handleWarehouseChange}>
-                            <option value="">Select Warehouse</option>
+                            <option value="">Please select</option>
                             {warehouseOptions.map((warehouse) => (
                                 <option key={warehouse.id} value={warehouse.id}>{warehouse.warehouse_name}</option>
                             ))}
@@ -175,7 +176,7 @@ const FormAddInventoryItem = () => {
             </div>
             <section className='addForm__buttons'>
                 <button type='button' className='addForm__button' onClick={() => navigate("/inventories")}>Cancel</button>
-                <button type='submit' className='addForm__button addForm__button--blue'>Save</button>
+                <button type='submit' className='addForm__button addForm__button--blue'>+ Add Item</button>
             </section>
         </form>
     );
