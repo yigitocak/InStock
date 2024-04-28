@@ -34,6 +34,9 @@
             flex-direction: column;
             gap: 1.5rem;
         }
+            &__link {
+                text-decoration: none;
+            }
             &__label {
                 color: $slate;
                 font-size: .85rem;

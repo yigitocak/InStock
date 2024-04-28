@@ -1,6 +1,6 @@
 @use '../../styles/partials/globals' as *;
 
-.edit {
+.add {
     display: flex;
     flex-direction: column;
     background-color: $grey;
@@ -25,6 +25,8 @@
     &__top {
         display: flex;
         padding-left: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
         gap: .5rem;
         border-bottom: 1px solid $cloud;
         display: flex;
