@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './FormWarehouseDetails.scss';
 import axios from 'axios'
 
 const FormWarehouseDetails = ({warehouseId}) => {
 
+    const navigate = useNavigate()
     const API_URL = 'http://localhost:8080/api'
     
     const handleSubmit = async (e) => {
@@ -15,7 +16,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
             });
             if (response.status === 200) {
                 alert('Warehouse details updated successfully')
-                
+                navigate('/')
             } else {
                 alert('Failed to update warehouse details')
             }
@@ -24,6 +25,32 @@ const FormWarehouseDetails = ({warehouseId}) => {
             alert('An error occurred while updating warehouse details')
         }
     };
+
+
+    const [warehouseOptions, setWarehouseOptions] = useState(null);
+    useEffect(() => {
+    const fetchWarehouses = async () => {
+      try {
+        const warehouses = await axios.get(`${API_URL}/warehouses/${warehouseId}`)
+        const warehousesData = warehouses.data
+        setWarehouseOptions(warehousesData)
+
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchWarehouses();
+    }, [warehouseId]);
+
+
+    const wName = warehouseOptions ? warehouseOptions.warehouse_name : null
+    const wAddress = warehouseOptions ? warehouseOptions.address : null
+    const wcity = warehouseOptions ? warehouseOptions.city : null
+    const wCountry = warehouseOptions ? warehouseOptions.country : null
+    const wContactName = warehouseOptions ? warehouseOptions.contact.name : null
+    const wContactPos = warehouseOptions ? warehouseOptions.contact.position : null
+    const wContactPHone = warehouseOptions ? warehouseOptions.contact.phone : null
+    const wContactEmail = warehouseOptions ? warehouseOptions.contact.email : null
 
     const [formData, setFormData] = useState(
         {
@@ -56,6 +83,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             name='warehouse_name'
                             value={formData.warehouse_name}
                             onChange={handleInputChange}
+                            placeholder={wName}
                             required
                         />
                     </div>
@@ -67,6 +95,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             name='address'
                             value={formData.address}
                             onChange={handleInputChange}
+                            placeholder={wAddress}
                             required
                         />
                     </div>
@@ -78,6 +107,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             name='city'
                             value={formData.city}
                             onChange={handleInputChange}
+                            placeholder={wcity}
                             required
                         />
                     </div>
@@ -89,6 +119,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             name='country'
                             value={formData.country}
                             onChange={handleInputChange}
+                            placeholder={wCountry}
                             required
                         />
                     </div>
@@ -104,6 +135,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             name='contact_name'
                             value={formData.contact_name}
                             onChange={handleInputChange}
+                            placeholder={wContactName}
                             required
                         />
                     </div>
@@ -115,6 +147,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             name='contact_position'
                             value={formData.contact_position}
                             onChange={handleInputChange}
+                            placeholder={wContactPos}
                             required
                         />
                     </div>
@@ -126,6 +159,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             name='contact_phone'
                             value={formData.contact_phone}
                             onChange={handleInputChange}
+                            placeholder={wContactPHone}
                             required
                         />
                     </div>
@@ -137,6 +171,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             name='contact_email'
                             value={formData.contact_email}
                             onChange={handleInputChange}
+                            placeholder={wContactEmail}
                             required
                         />
                     </div>

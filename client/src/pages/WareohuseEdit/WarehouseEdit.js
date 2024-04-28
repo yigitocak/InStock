@@ -12,7 +12,7 @@ const {warehouseId} = useParams()
             <section className='edit__container'>
                 <div className='edit__top'>
                     <Link to='/' className='edit__link'>
-                        <img src={arrow} alt='arrow to the left'/>
+                        <img src={arrow} alt='arrow to the left' className='edit__image'/>
                     </Link>
                     <h1 className='edit__title'>Edit Warehouse</h1>
                 </div>
