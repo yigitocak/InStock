@@ -79,8 +79,12 @@ const InventoryList =({warehouseId}) => {
                                 <div className='invent__item'><p className={`${inventory.quantity?'in' : 'out'}`}>{inventory.status}</p></div>
                                 <div className="invent__item">{inventory.quantity}</div>
                                 <div className="invent__item invent__item--mod">
-                                    <img className="invent__icons  invent__icons--mod" src={edit} alt =""/>
-                                    <img className="invent__icons  invent__icons--mod" src={deletecon} alt =""/>
+                                    <Link to='/api/warehouses'>
+                                        <img className="invent__icons  invent__icons--mod" src={edit} alt='edit'/>
+                                    </Link>
+                                    <button className="invent__buttond" >
+                                            <img className="invent__icons  invent__icons--mod" src={deletecon} alt="Delete"/>
+                                    </button>
                                 </div>
                             </article>
                         )
