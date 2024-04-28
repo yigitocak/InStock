@@ -82,7 +82,7 @@ const InventoryTab =() => {
                             <div className="invent__item">{inventory.quantity}</div>
                             <div className="invent__item">{inventory.warehouse_name}</div>
                             <div className="invent__item invent__item--mod">
-                                    <Link to='/api/warehouses'>
+                                    <Link to={`/inventory/${inventory.id}/edit`}>
                                         <img className="invent__icons  invent__icons--mod" src={edit} alt='edit'/>
                                     </Link>
                                     <button className="invent__buttond" >
@@ -133,7 +133,7 @@ const InventoryTab =() => {
                                     <button className="invent__buttond" >
                                         <img src={deletecon} alt="Delete"/>
                                     </button>
-                                    <Link to='/api/warehouses'>
+                                    <Link to={`/inventory/${inventory.id}/edit`}>
                                         <img src={edit} alt='edit'/>
                                     </Link>
                                 </section>

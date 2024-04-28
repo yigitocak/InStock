@@ -79,7 +79,7 @@ const InventoryList =({warehouseId}) => {
                                 <div className='invent__item'><p className={`${inventory.quantity?'in' : 'out'}`}>{inventory.status}</p></div>
                                 <div className="invent__item">{inventory.quantity}</div>
                                 <div className="invent__item invent__item--mod">
-                                    <Link to='/api/warehouses'>
+                                    <Link to='/inventory/:id/edit'>
                                         <img className="invent__icons  invent__icons--mod" src={edit} alt='edit'/>
                                     </Link>
                                     <button className="invent__buttond" >
