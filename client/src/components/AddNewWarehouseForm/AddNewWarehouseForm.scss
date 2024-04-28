@@ -85,11 +85,6 @@
             border: 1.5px solid $indigo; 
             outline: none;
         }
-
-        &:invalid {
-            border: 1.5px solid $red; 
-            outline: none;
-        }
     }
     
     &__buttons {

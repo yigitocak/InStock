@@ -4,75 +4,70 @@ import axios from 'axios';
 import './EditFormInventoryItem.scss';
 import arrowDrop from '../../assets/icons/arrow_drop_down-24px.svg';
 
-const EditFormInventoryItem = ({ item }) => {
+const EditFormInventoryItem = () => {
     const navigate = useNavigate();
     const { id } = useParams();
     const [categories, setCategories] = useState([]);
     const [warehouses, setWarehouses] = useState([]);
     const [status, setStatus] = useState('');
+    const [formData, setFormData] = useState({
+        item_name: '',
+        description: '',
+        category: '',
+        status: '',
+        quantity: '',
+        warehouse_name: ''
+    });
 
     useEffect(() => {
-        if (item.quantity > 0) {
-            setStatus('inStock');
-        } else {
-            setStatus('outOfStock');
-        }
-
-        const fetchCategories = async () => {
+        const fetchData = async () => {
             try {
-                const categoriesResponse = await axios.get('http://localhost:8080/api/inventories');
-                const uniqueCategories = Array.from(new Set(categoriesResponse.data.map(item => item.category)));
+                const response = await axios.get(`http://localhost:8080/api/inventories/${id}`);
+                const itemData = response.data;
+                setFormData(itemData);
+                setStatus(itemData.status);
+                const allItemsResponse = await axios.get('http://localhost:8080/api/inventories');
+                const allItems = allItemsResponse.data;
+                const uniqueCategories = Array.from(new Set(allItems.map(item => item.category)));
+                const uniqueWarehouses = Array.from(new Set(allItems.map(item => item.warehouse_name)));
                 setCategories(uniqueCategories);
-            } catch (error) {
-                console.error('Error fetching categories:', error);
-            }
-        };
-
-        const fetchWarehouses = async () => {
-            try {
-                const warehousesResponse = await axios.get('http://localhost:8080/api/inventories');
-                const uniqueWarehouses = Array.from(new Set(warehousesResponse.data.map(item => item.warehouse_name)));
                 setWarehouses(uniqueWarehouses);
             } catch (error) {
-                console.error('Error fetching warehouses:', error);
+                console.error('Error fetching data:', error);
             }
         };
-
-        fetchCategories();
-        fetchWarehouses();
-    }, [item]);
-
-    const handleStatusClick = (newStatus) => {
-        setStatus(newStatus);
-    };
-
-    const [formData, setFormData] = useState({
-        item_name: item.item_name,
-        description: item.description,
-        category: item.category,
-        quantity: item.quantity,
-        warehouse_name: item.warehouse_name,
-    });
+        fetchData();
+    }, [id]);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
-        setFormData({...formData, [name]: value });
+        setFormData({ ...formData, [name]: value });
     };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.put(`http://localhost:8080/api/inventories/${id}`, formData);
-            if (response.status === 200) {
-                navigate("/inventories");
-            } else {
-                alert("Failed to edit item. Please try again.");
-            }
+            const quantity = formData.status === "Out of Stock" ? 0 : formData.quantity;
+            await axios.put(`http://localhost:8080/api/inventories/${id}`, {
+                item_name: formData.item_name,
+                description: formData.description,
+                category: formData.category,
+                status: formData.status,
+                warehouse_name: formData.warehouse_name,
+                quantity: quantity
+            });
+            alert("Item successfully Edited!");
+            navigate("/inventory");
         } catch (error) {
             console.error("Error editing item:", error);
             alert("Failed to edit item. Please try again.");
         }
     };
+
+    if (!formData.category) {
+        return <div>Loading...</div>;
+    }
+
 
     return (
         <section className='edit__main'>
@@ -82,19 +77,19 @@ const EditFormInventoryItem = ({ item }) => {
                         <h2 className='edit__title'>Item Details</h2>
                         <div className='edit__form'>
                             <label htmlFor='item_name' className='edit__label'>Item Name</label>
-                            <input id='item_name' className='edit__input' type='text' defaultValue={item.item_name} value={formData.item_name} onChange={handleInputChange} required/>
+                            <input id='item_name' className='edit__input' type='text' defaultValue={formData.item_name} onChange={handleInputChange} required />
                         </div>
                         <div className='edit__form'>
                             <label htmlFor='description' className='edit__label'>Description</label>
-                            <textarea id='description' className='edit__input-description' type='text' defaultValue={item.description} value={formData.description} onChange={handleInputChange} required />
+                            <textarea id='description' className='edit__input-description' type='text' defaultValue={formData.description} onChange={handleInputChange} required />
                         </div>
                         <div className='edit__form edit__select-wrapper'>
                             <label htmlFor='category' className='edit__label'>Category</label>
-                            <select id='category' className='edit__select' value={formData.category} onChange={handleInputChange}>
-                                <option value="">{item.category}</option>
+                            <select id='category' className='edit__select' defaultValue={formData.category} onChange={handleInputChange}>
+                                <option value="">{formData.category}</option>
                                 {categories.map((category, index) => (
-                                     category !== item.category && (
-                                    <option key={index} value={category}>{category}</option>
+                                    category !== formData.category && (
+                                        <option key={index} value={category}>{category}</option>
                                     )
                                 ))}
                             </select>
@@ -110,9 +105,10 @@ const EditFormInventoryItem = ({ item }) => {
                                 <input
                                     type="radio"
                                     id="inStock"
+                                    name="status"
                                     value="inStock"
                                     checked={status === 'inStock'}
-                                    onChange={() => handleStatusClick('inStock')}
+                                    onChange={handleInputChange}
                                     className='edit__radio-button'
                                 />
                                 <label className='edit__radio-label' htmlFor="inStock">In stock</label>
@@ -121,9 +117,10 @@ const EditFormInventoryItem = ({ item }) => {
                                 <input
                                     type="radio"
                                     id="outOfStock"
+                                    name="status"
                                     value="outOfStock"
                                     checked={status === 'outOfStock'}
-                                    onChange={() => handleStatusClick('outOfStock')}
+                                    onChange={handleInputChange}
                                     className='edit__radio-button'
                                 />
                                 <label className='edit__radio-label' htmlFor="outOfStock">Out of stock</label>
@@ -132,15 +129,15 @@ const EditFormInventoryItem = ({ item }) => {
                         {status === 'inStock' && (
                             <div className='edit__quantity'>
                                 <label htmlFor='item-name' className='edit__label'>Quantity</label>
-                                <input id='item-name' className='edit__input-q' type='text' defaultValue={item.quantity} value={formData.quantity} onChange={handleInputChange} required />
+                                <input id='item-name' className='edit__input-q' type='text' defaultValue={formData.quantity} onChange={handleInputChange} required />
                             </div>
                         )}
                         <div className='edit__container-2'>
                             <label htmlFor='warehouse_name' className='edit__label'>Warehouse</label>
-                            <select id='warehouse_name' className='edit__select' value={formData.warehouse_name} onChange={handleInputChange}>
-                                <option value="">{item.warehouse_name}</option>
+                            <select id='warehouse_name' className='edit__select' defaultValue={formData.warehouse_name} onChange={handleInputChange}>
+                                <option value="">{formData.warehouse_name}</option>
                                 {warehouses.map((warehouse, index) => (
-                                    warehouse !== item.warehouse_name && (
+                                    warehouse !== formData.warehouse_name && (
                                         <option key={index} value={warehouse}>{warehouse}</option>
                                     )
                                 ))}
@@ -150,12 +147,12 @@ const EditFormInventoryItem = ({ item }) => {
                     </section>
                 </div>
                 <section className='edit__buttons'>
-                    <button type='button' className='edit__button' onClick={() => navigate("/inventories")}>Cancel</button>
+                    <button type='button' className='edit__button' onClick={() => navigate("/inventory")}>Cancel</button>
                     <button type='submit' className='edit__button edit__button--blue'>Save</button>
                 </section>
             </form>
         </section>
     );
-}
+};
 
 export default EditFormInventoryItem;
