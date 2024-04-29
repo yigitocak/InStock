@@ -92,6 +92,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             value={formData.warehouse_name}
                             onChange={handleInputChange}
                             placeholder={wName}
+                            defaultValue={wName}
                            
                         />
                     </div>
@@ -104,6 +105,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             value={formData.address}
                             onChange={handleInputChange}
                             placeholder={wAddress}
+                            defaultValue={wAddress}
                             
                         />
                     </div>
@@ -116,7 +118,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             value={formData.city}
                             onChange={handleInputChange}
                             placeholder={wcity}
-                            
+                            defaultValue={wcity}
                         />
                     </div>
                     <div className='form__container'>
@@ -128,7 +130,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             value={formData.country}
                             onChange={handleInputChange}
                             placeholder={wCountry}
-                            
+                            defaultValue={wCountry}
                         />
                     </div>
                 </section>
@@ -144,7 +146,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             value={formData.contact_name}
                             onChange={handleInputChange}
                             placeholder={wContactName}
-                            
+                            defaultValue={wContactName}
                         />
                     </div>
                     <div className='form__container'>
@@ -156,7 +158,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             value={formData.contact_position}
                             onChange={handleInputChange}
                             placeholder={wContactPos}
-                            
+                            defaultValue={wContactPos}
                         />
                     </div>
                     <div className='form__container'>
@@ -168,7 +170,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             value={formData.contact_phone}
                             onChange={handleInputChange}
                             placeholder={wContactPHone}
-                            
+                            defaultValue={wContactPHone}
                         />
                     </div>
                     <div className='form__container'>
@@ -180,7 +182,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             value={formData.contact_email}
                             onChange={handleInputChange}
                             placeholder={wContactEmail}
-                            
+                            defaultValue={wContactEmail}
                         />
                     </div>
                 </section>
