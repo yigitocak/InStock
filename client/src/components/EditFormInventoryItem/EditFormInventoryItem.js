@@ -36,7 +36,6 @@ const EditFormInventoryItem = () => {
         const { name, value } = event.target;
         if (name === 'status') {
             setStatus(value);
-            console.log("Status updated:", value);
             setItemData(prevItemData => ({
                 ...prevItemData,
                 [name]: value,
