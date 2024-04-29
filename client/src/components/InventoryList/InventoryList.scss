@@ -1,0 +1,95 @@
+@use '../../styles/partials/globals' as *;
+
+.invent{
+    &__itemcon{
+        display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-top: 1px solid $cloud;
+    gap: 1.25rem;
+    }
+    &__titlecon{
+        display: none;
+        justify-content: space-between;
+        background-color: $grey;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        width:100%;
+        @include tablet{
+            display: flex;
+        }
+    }
+    &__item{
+        display: flex;
+       width:fit-content;
+       text-decoration: none;
+        &--mod{
+            width:8%;
+        }
+        @include tablet{
+            width: 15%;
+        }
+    }
+    &__itemcon{
+        display: flex;
+        justify-content: space-around;
+        @include tablet{
+            display: none;
+        }
+    }
+    &__icons{
+        width:10%;
+        &--mod{
+            width: 20%;
+        }
+        &--right{
+            width: 12%;
+        }
+    }
+    &__tablet{
+        display:none;
+        @include tablet{
+            display:flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+            align-items: center;
+            
+        }
+    }
+    &__title{
+        display: flex;
+        width:15%;
+        &--mod{
+            width:18%;
+        }
+    }
+    &__list{
+        display: flex;
+    }
+    &__des {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    &__available {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    &__label {
+        color: $slate;
+        @include tablet{
+            display: none;
+        }
+    }
+    &__actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include tablet {
+            gap: .5rem;
+        }
+    }
+
+}

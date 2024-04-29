@@ -49,7 +49,7 @@ const WarehouseItem = ({warehouseId, name, address, city, country, contactName, 
             
             <article className='otherItem'>
                 <div className='otherItem__container--first'>
-                <Link to='warehouses/:warehouseId' className='item__link'>
+                <Link to={`/warehouses/${warehouseId}`} className='item__link'>
                     <p className='item__name'>{name}</p>
                 </Link>
                     <img src={arrow} alt='arrow'/>

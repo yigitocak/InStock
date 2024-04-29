@@ -1,5 +1,5 @@
 import closeIcon from "../../assets/icons/close-24px.svg";
-import "./DeleteWarehouseModal.scss"
+import "./DeleteInventoryModal.scss"
 import axios from "axios";
 
 export const DeleteInventoryModal = ({itemName, closeModal, id }) => {
