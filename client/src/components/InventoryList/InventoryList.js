@@ -1,28 +1,24 @@
 import "./InventoryList.scss"
 import axios from 'axios'
 import {useState, useEffect} from 'react'
-import {DeleteInventoryModal} from "../DeleteInventoryModal/DeleteInventoryModal"
 import InventMap from "../InventMap/InventMap";
 import dropdown from "../../assets/icons/sort-24px.svg"
 
 const InventoryList =({warehouseId}) => {
-    const [modalOpen, setModalOpen] = useState(false);
-    const toggleModal = () => setModalOpen(!modalOpen);
-
     const ApiUrl = "http://localhost:8080/api"
     const [activeInventory, setactiveInventory] = useState(null)
 
-    useEffect(() => {
-
-        const getInventory = async() => {
-            try{
-                const response = await axios.get(`${ApiUrl}/warehouses/${warehouseId}/inventories`)
-                setactiveInventory(response.data)
-            }
-            catch(err){
-                console.error(err)
-            }
+    const getInventory = async() => {
+        try{
+            const response = await axios.get(`${ApiUrl}/warehouses/${warehouseId}/inventories`)
+            setactiveInventory(response.data)
         }
+        catch(err){
+            console.error(err)
+        }
+    }
+
+    useEffect(() => {
         getInventory()
         },[warehouseId])
         if (! activeInventory){
@@ -60,8 +56,8 @@ const InventoryList =({warehouseId}) => {
                           <InventMap
                           key={inventory.id}
                           inventory={inventory}
+                          reRender={getInventory}
                           />
-                        {modalOpen && <DeleteInventoryModal inventoryName="placeholder" closeModal={toggleModal} />}
                         </div>
                     )})
                 

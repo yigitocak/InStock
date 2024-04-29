@@ -6,7 +6,7 @@ import arrow from '../../assets/icons/chevron_right-24px.svg'
 import {useState} from "react";
 import {DeleteWarehouseModal} from "../DeleteWarehouseModal/DeleteWarehouseModal";
 
-const WarehouseItem = ({warehouseId, name, address, city, country, contactName, contactPhone, contactEmail}) => {
+const WarehouseItem = ({warehouseId, name, address, city, country, contactName, contactPhone, contactEmail, reRender}) => {
     const [modalOpen, setModalOpen] = useState(false);
     const toggleModal = () => setModalOpen(!modalOpen);
     
@@ -75,7 +75,7 @@ const WarehouseItem = ({warehouseId, name, address, city, country, contactName, 
                     </Link>
                 </section>
             </article>
-            {modalOpen && <DeleteWarehouseModal warehouseName={name} id={warehouseId} closeModal={toggleModal} />}
+            {modalOpen && <DeleteWarehouseModal warehouseName={name} id={warehouseId} reRender={reRender} closeModal={toggleModal} />}
         </>
     )
 }

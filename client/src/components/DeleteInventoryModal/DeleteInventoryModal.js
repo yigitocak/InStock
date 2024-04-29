@@ -2,7 +2,7 @@ import closeIcon from "../../assets/icons/close-24px.svg";
 import "./DeleteInventoryModal.scss"
 import axios from "axios";
 
-export const DeleteInventoryModal = ({itemName, closeModal, id }) => {
+export const DeleteInventoryModal = ({itemName, closeModal, id, reRender }) => {
     const delRequest = async () => {
         try {
             const response = await axios.delete(`http://localhost:8080/api/inventories/${id}` )
@@ -12,6 +12,7 @@ export const DeleteInventoryModal = ({itemName, closeModal, id }) => {
             console.error(err)
         }
         closeModal()
+        reRender()
     }
 
     return (

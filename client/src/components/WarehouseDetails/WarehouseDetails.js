@@ -1,11 +1,11 @@
 import "./WarehouseDetails.scss"
 import back from "../../assets/icons/arrow_back-24px.svg"
 import {useState, useEffect} from 'react'
-
+import axios from "axios";
 import { Link, NavLink } from 'react-router-dom'
 
 const WarehouseDetails = ({warehouseId}) => {
-    
+
 
     const ApiUrl = "http://localhost:8080/api"
     const [activeWh, setactiveWh] = useState(null)
