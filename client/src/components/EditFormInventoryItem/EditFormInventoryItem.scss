@@ -6,6 +6,7 @@
     width: 100%;
     background-color: $white;
 
+
     &__container {
         display: flex;
         flex-direction: column;
@@ -19,7 +20,7 @@
             flex:3;
             padding: 0 2rem;
             border-right: 1px solid $cloud; 
-            margin: 1rem 0;
+            margin: 1.5rem 0;
         }
     }
 
@@ -141,7 +142,7 @@
         @include tablet {
             border: none;
             flex:3;
-            padding: 1rem 2rem;
+            padding: 1.5rem 2rem;
         }
     }
 
@@ -181,6 +182,7 @@
     &__tablet {
         @include tablet {
             display: flex;
+            background-color: $white;
         }
     }
 
@@ -191,9 +193,10 @@
         gap: 1rem;
         padding-top: .5rem;
         padding-bottom: 1rem;
-        background-color: $grey;
+        background-color: rgba(240, 251, 249, 0.7);
         @include tablet {
             justify-content: end;
+            padding-bottom: .75rem;
         }
     }
 
