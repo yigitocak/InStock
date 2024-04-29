@@ -8,13 +8,13 @@ const WarehouseEdit = () => {
 const {warehouseId} = useParams()
 
     return (
-        <main className='edit'>
-            <section className='edit__container'>
-                <div className='edit__top'>
-                    <Link to='/' className='edit__link'>
-                        <img src={arrow} alt='arrow to the left' className='edit__image'/>
+        <main className='editW'>
+            <section className='editW__container'>
+                <div className='editW__top'>
+                    <Link to='/' className='editW__link'>
+                        <img src={arrow} alt='arrow to the left' className='editW__image'/>
                     </Link>
-                    <h1 className='edit__title'>Edit Warehouse</h1>
+                    <h1 className='editW__title'>Edit Warehouse</h1>
                 </div>
                 
                 <FormWarehouseDetails 
