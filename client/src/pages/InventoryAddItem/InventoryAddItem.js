@@ -4,6 +4,7 @@ import arrow from '../../assets/icons/arrow_back-24px.svg'
 import FormAddInventoryItem from '../../components/FormAddInventoryItem/FormAddInventoryItem'
 
 const InventoryAddItem = () => {
+    
     return (
         <main className='add'>
         <section className='add__container'>

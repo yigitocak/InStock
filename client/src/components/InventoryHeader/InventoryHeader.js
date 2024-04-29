@@ -13,7 +13,7 @@ const InventoryHeader = () => {
                     <img src={search} className='invent__loopIcon'></img>
                 </div>
             </form> 
-            <Link to='/inventories/add'>
+            <Link to='/inventory/add'>
                 <button className='invent__buttons'>+ Add New Inventory</button>            
             </Link>   
         </section>

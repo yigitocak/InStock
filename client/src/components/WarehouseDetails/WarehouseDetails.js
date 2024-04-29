@@ -1,11 +1,20 @@
 import axios from 'axios'
 import "./WarehouseDetails.scss"
 import back from "../../assets/icons/arrow_back-24px.svg"
-import edit from "../../assets/icons/edit-24px.svg"
+//import edit from "../../assets/icons/edit-24px.svg"
 import {useState, useEffect} from 'react'
-
+import { Link } from 'react-router-dom'
+import MyIcon from '../../assets/icons/edit-24px.svg';
 
 const WarehouseDetails = ({warehouseId}) => {
+    function MyComponent() {
+        return (
+          <div>
+            <MyIcon className="details__icons" />
+          </div>
+        );
+      }
+      MyComponent();
 
     const ApiUrl = "http://localhost:8080/api"
     const [activeWh, setactiveWh] = useState(null)
@@ -31,12 +40,14 @@ const WarehouseDetails = ({warehouseId}) => {
         <div className="" >
             <div className='details__h'>
                 <div className='details__tit' >
+                    <Link to ="/">
                     <img src={back} alt="" />
+                    </Link>
                     <h1>{activeWh.warehouse_name}</h1>
                 </div>
-                <div className='details__icn'>
-                    <img src={edit} className='details__icons' alt='edit icon'/>
-                </div>
+                <Link to={`/warehouses/${warehouseId}/edit`} className='details__icn'>
+                    <img src={MyIcon} className='details__icons' alt='edit icon'/>
+                </Link>
             </div>
             <div className='details__div' >
                 <div className="" >

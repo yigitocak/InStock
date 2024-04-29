@@ -6,7 +6,7 @@ import right from "../../assets/icons/chevron_right-24px.svg"
 import dropdown from "../../assets/icons/sort-24px.svg"
 import {useState, useEffect} from 'react'
 import { NavLink, Link, useParams} from "react-router-dom";
-import {DeleteWarehouseModal} from "../DeleteWarehouseModal/DeleteWarehouseModal";
+import {DeleteInventoryModal} from "../DeleteInventoryModal/DeleteInventoryModal"
 
 const InventoryList =({warehouseId}) => {
     const [modalOpen, setModalOpen] = useState(false);
@@ -83,14 +83,16 @@ const InventoryList =({warehouseId}) => {
                                 <div className="invent__item">{inventory.quantity}</div>
                                 <div className="invent__item invent__item--mod">
                                     <Link to='/inventory/:id/edit'>
-                                        <img className="invent__icons  invent__icons--mod" src={edit} alt='edit'/>
+                                        <img src={edit} alt='edit'/>
                                     </Link>
                                     <button className="invent__buttond" onClick={toggleModal} >
-                                            <img className="invent__icons  invent__icons--mod" src={deletecon} alt="Delete"/>
+                                            <img  src={deletecon} alt="Delete"/>
                                     </button>
                                 </div>
+                                {modalOpen && <DeleteInventoryModal inventoryName="placeholder" closeModal={toggleModal} />}
                             </article>
-                        {modalOpen && <DeleteWarehouseModal warehouseName="placeholder" closeModal={toggleModal} />}
+                            
+                        
                         )
                     })
             }</div>
@@ -133,13 +135,13 @@ const InventoryList =({warehouseId}) => {
                                         <img src={edit} alt='edit'/>
                                     </Link>
                                 </section>
-                            
+                                {modalOpen && <DeleteInventoryModal inventoryName="placeholder" closeModal={toggleModal} />}
                         </article>
                         
                     )})
                 
                 }
-{modalOpen && <DeleteWarehouseModal warehouseName="placeholder" closeModal={toggleModal} />}
+
             </div>
         </div>
     )

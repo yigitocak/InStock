@@ -11,16 +11,18 @@
         margin: 1rem;
         margin-top: -3rem;
         border: 1px solid $white;
-        box-shadow: $white;
+        box-shadow: 0px 2px 5px 0px #13182C1A;
         border-radius: 5px;
 
         @include tablet {
             margin: 2rem;
             margin-top: -4rem;
+            margin-bottom: 12rem;
         }
         @include desktop {
             margin-left:6rem;
             margin-right: 6rem;
+            margin-bottom: 6rem;
         }
     }
 }
