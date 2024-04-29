@@ -25,14 +25,14 @@
 
   @include tablet {
     width: 80%;
-    height: 30%;
+    height: 35%;
     background-color: #fff;
     top: 20%;
     padding: 1.5rem 4rem;
   }
 
   @include desktop {
-    width: 60%;
+    width: 65%;
   }
 
   &__header {

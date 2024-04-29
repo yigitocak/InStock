@@ -6,7 +6,7 @@ import { useState } from "react";
 import { DeleteInventoryModal } from "../DeleteInventoryModal/DeleteInventoryModal";
 
 
-const InventMap = ({inventory}) => {
+const InventMap = ({inventory, reRender}) => {
     const [modalOpen, setModalOpen] = useState(false);
     const toggleModal = () => setModalOpen(!modalOpen);
     
@@ -67,7 +67,7 @@ const InventMap = ({inventory}) => {
                                 </section>
                                 
                                 </article>
-                                {modalOpen && <DeleteInventoryModal itemName={inventory.item_name} id={inventory.id} closeModal={toggleModal} />}
+                                {modalOpen && <DeleteInventoryModal itemName={inventory.item_name} id={inventory.id} reRender={reRender} closeModal={toggleModal} />}
         </div>
     )
 }

@@ -2,15 +2,15 @@ import closeIcon from "../../assets/icons/close-24px.svg";
 import "./DeleteWarehouseModal.scss"
 import axios from "axios";
 
-export const DeleteWarehouseModal = ({warehouseName, closeModal, id }) => {
+export const DeleteWarehouseModal = ({warehouseName, closeModal, id, reRender }) => {
     const delRequest = async () => {
         try {
             const response = await axios.delete(`http://localhost:8080/api/warehouses/${id}` )
-            console.log(response.status)
         }
         catch (err) {
             console.error(err)
         }
+        reRender()
         closeModal()
     }
 

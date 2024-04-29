@@ -10,15 +10,15 @@ const Warehouses = () => {
 
     const [warehouseList, setWarehouseList] = useState([])
     const API_URL = "http://localhost:8080/api"
-    useEffect(() => {
-        const getWarehouses = async() => {
-            try {
-                const warehousesData = await axios.get(API_URL + '/warehouses')
-                setWarehouseList(warehousesData.data)
-            } catch (error) {
-                console.error(error)
-            }
+    const getWarehouses = async() => {
+        try {
+            const warehousesData = await axios.get(API_URL + '/warehouses')
+            setWarehouseList(warehousesData.data)
+        } catch (error) {
+            console.error(error)
         }
+    }
+    useEffect(() => {
         getWarehouses()
     }, [])
     return (
@@ -38,6 +38,7 @@ const Warehouses = () => {
                             contactName={warehouse.contact_name}
                             contactPhone={warehouse.contact_phone}
                             contactEmail={warehouse.contact_email}
+                            reRender={getWarehouses}
                         />
                     )
                 })}

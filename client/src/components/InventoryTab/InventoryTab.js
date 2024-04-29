@@ -12,16 +12,17 @@ const InventoryTab =() => {
     const [inventList, setinventList] = useState(null)
     const ApiUrl = "http://localhost:8080/api"
 
-    useEffect(() => {
-        const getInventory = async() => {
-            try{
-                const response = await axios.get(`${ApiUrl}/inventories`)
-                setinventList(response.data)
-            }
-            catch(err){
-                console.error(err)
-            }
+    const getInventory = async() => {
+        try{
+            const response = await axios.get(`${ApiUrl}/inventories`)
+            setinventList(response.data)
         }
+        catch(err){
+            console.error(err)
+        }
+    }
+
+    useEffect(() => {
         getInventory()
         },[])
         if (! inventList){
@@ -66,6 +67,7 @@ const InventoryTab =() => {
                             <InventMapT 
                             key = {inventory.id}
                             inventory={inventory}
+                            reRender={getInventory}
                             />
                         </div>
                     )})
