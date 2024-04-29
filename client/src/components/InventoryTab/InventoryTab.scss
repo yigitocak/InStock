@@ -44,9 +44,6 @@
     }
     &__icons{
         width:10%;
-        &--mod{
-            width: 20%;
-        }
     }
     &__tablet{
         display:none;
@@ -61,6 +58,7 @@
     }
     &__title{
         display: flex;
+        align-items: center;
         width:16%;
         font-size:small;
         &--mod{
