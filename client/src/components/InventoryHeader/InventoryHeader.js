@@ -10,7 +10,7 @@ const InventoryHeader = () => {
                 <label htmlFor='search'></label>
                 <div className='invent__containers'>
                     <input className='invent__input' placeholder='Search...'></input>
-                    <img src={search} className='invent__loopIcon'></img>
+                    <img src={search} className='invent__loopIcon' alt="search"></img>
                 </div>
             </form> 
             <Link to='/inventory/add'>

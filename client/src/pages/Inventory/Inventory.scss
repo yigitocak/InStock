@@ -2,8 +2,6 @@
 
 
 .invents {
-    //display: flex;
-    //flex-direction: column;
     background-color: $grey;
     width: 100%;
     &__div {
@@ -14,9 +12,9 @@
         box-shadow: $white;
         border-radius: 2px;
 
-        @include tablet {
+    @include tablet {
             margin: 2rem;
-            margin-top: -4rem;
+            margin-top: -4rem; 
         }
     }
 }

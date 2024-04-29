@@ -39,9 +39,6 @@
     }
     &__icons{
         width:10%;
-        &--mod{
-            width: 20%;
-        }
         &--right{
             width: 12%;
         }
@@ -53,6 +50,7 @@
             justify-content: space-between;
             padding: 0 1rem;
             align-items: center;
+            border-bottom: solid 1px $grey;
             
         }
     }

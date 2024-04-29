@@ -5,7 +5,9 @@
         display: flex;
         justify-content: space-between;
         @include tablet{
-            width:50%;
+            width:65%;
+            padding-left: 1rem;
+            align-items: center;
         }
     }
     &__div{
@@ -17,9 +19,15 @@
             flex-direction: row;
         }
     }
+    &__divw{
+        @include tablet{
+        padding-top:1rem ;
+        }
+    }
     &__tit{
         display: flex;
         padding-left: 1rem;
+        align-items: center;
        
     }
     &__icons{
@@ -27,7 +35,10 @@
     }
     &__icn{
         background-color: $indigo;
-        color: $white;
+        border-radius: 2rem;
+        display: flex; 
+        align-items: center; 
+        padding: 0.5rem;  
     }
     &__h{
         display: flex;
@@ -35,5 +46,29 @@
         padding-right: 1rem;
         border-bottom: $slate solid 0.5px;
         align-items: center;
+    }
+    &__divad{
+        display: inline;
+        @include tablet{
+            display:block ;
+        }
+    }
+    &__conad{
+        @include tablet{
+            border-left: solid 1px $slate;
+            margin: 1rem 0;
+            padding-left: 1rem;
+        }
+    }
+    &__conin{
+        @include tablet{
+            width: 50%;
+        }
+    }
+}
+
+h3{
+    @include tablet{
+        font-size: small;
     }
 }
