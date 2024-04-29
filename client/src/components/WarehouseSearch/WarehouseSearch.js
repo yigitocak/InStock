@@ -11,6 +11,7 @@ const WarehouseSearch = () => {
                 <div className='warehouseForm__container'>
                     <input className='warehouseForm__input' placeholder='Search...'></input>
                     <img src={loop} className='warehouseForm__loopIcon'alt="search"></img>
+
                 </div>
             </form> 
             <Link to='/warehouses/add' className='addLink'>

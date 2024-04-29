@@ -1,9 +1,8 @@
-import axios from 'axios'
 import "./WarehouseDetails.scss"
 import back from "../../assets/icons/arrow_back-24px.svg"
 import {useState, useEffect} from 'react'
-import { Link, NavLink } from 'react-router-dom'
 
+import { Link, NavLink } from 'react-router-dom'
 
 const WarehouseDetails = ({warehouseId}) => {
     

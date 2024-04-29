@@ -9,6 +9,7 @@ import {DeleteWarehouseModal} from "../DeleteWarehouseModal/DeleteWarehouseModal
 const WarehouseItem = ({warehouseId, name, address, city, country, contactName, contactPhone, contactEmail}) => {
     const [modalOpen, setModalOpen] = useState(false);
     const toggleModal = () => setModalOpen(!modalOpen);
+    
 
     return (
         <>
@@ -17,9 +18,11 @@ const WarehouseItem = ({warehouseId, name, address, city, country, contactName, 
                     <section className='item__left'>
                         <div className='item__container'>
                             <p className='item__label'>WAREHOUSE</p>
-                            <Link to={`/warehouses/${warehouseId}`} className='item__link'>
-                                <p className='item__name'>{name}</p>
-                            </Link>
+                            {warehouseId && (
+                                <Link to={`/warehouses/${warehouseId}`} className='item__link'>
+                                    <p className='item__name'>{name}</p>
+                                </Link>
+                            )}
                         </div>
                         <div className='item__container'>
                             <p className='item__label'>ADDRESS</p>
@@ -46,7 +49,7 @@ const WarehouseItem = ({warehouseId, name, address, city, country, contactName, 
                     </Link>
                 </section>
             </article>
-            
+
             <article className='otherItem'>
                 <div className='otherItem__container--first'>
                 <Link to={`/warehouses/${warehouseId}`} className='item__link'>
@@ -72,7 +75,7 @@ const WarehouseItem = ({warehouseId, name, address, city, country, contactName, 
                     </Link>
                 </section>
             </article>
-            {modalOpen && <DeleteWarehouseModal warehouseName="placeholder" closeModal={toggleModal} />}
+            {modalOpen && <DeleteWarehouseModal warehouseName={name} id={warehouseId} closeModal={toggleModal} />}
         </>
     )
 }

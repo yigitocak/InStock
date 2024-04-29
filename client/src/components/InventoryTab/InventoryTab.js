@@ -28,7 +28,6 @@ const InventoryTab =() => {
             return<div>Loading ...</div>
         }
 
- 
     return (
         <div className="invent">
             <div className="invent__titlecon">
@@ -62,12 +61,12 @@ const InventoryTab =() => {
                 {
                     inventList.map((inventory) =>{
                         return(
+
                            <div>
                             <InventMapT 
                             key = {inventory.id}
                             inventory={inventory}
                             />
-                        {modalOpen && <DeleteInventoryModal inventoryName="placeholder" closeModal={toggleModal} />}
                         </div>
                     )})
                 }

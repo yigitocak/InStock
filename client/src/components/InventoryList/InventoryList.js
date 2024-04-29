@@ -28,8 +28,6 @@ const InventoryList =({warehouseId}) => {
         if (! activeInventory){
             return<div>Loading ...</div>
         }
- 
-    console.log(activeInventory)
     return (
         <div className="invent__h">
             <div className="invent__titlecon">
@@ -57,7 +55,6 @@ const InventoryList =({warehouseId}) => {
             </div>
             <div>{
                     activeInventory.map((inventory) =>{
-                        
                         return(
                             <div>
                           <InventMap
@@ -66,7 +63,6 @@ const InventoryList =({warehouseId}) => {
                           />
                         {modalOpen && <DeleteInventoryModal inventoryName="placeholder" closeModal={toggleModal} />}
                         </div>
-                        
                     )})
                 
                 }
