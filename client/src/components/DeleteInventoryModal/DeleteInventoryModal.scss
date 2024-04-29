@@ -1,7 +1,6 @@
 @import "../../styles/partials/colors";
 @import "../../styles/partials/mixins";
 
-
 .backdrop {
   position: fixed;
   top: 0;
@@ -11,7 +10,6 @@
   background-color: rgba(19, 24, 44, 0.7);
   z-index: 1;
 }
-
 
 .modal{
   position: fixed;
@@ -46,7 +44,7 @@
     }
 
     @include desktop {
-      width: 50vw;
+      width: 48vw;
     }
   }
 
@@ -55,6 +53,9 @@
 
     @include tablet {
       width: 50vw;
+    }
+    @include desktop {
+      width: 48vw;
     }
   }
 
