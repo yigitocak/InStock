@@ -10,6 +10,14 @@ const FormWarehouseDetails = ({warehouseId}) => {
     
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const requiredFields = ['warehouse_name', 'address', 'city', 
+            'country', 'contact_name', 'contact_position', 'contact_phone', 'contact_email'];
+        const missingFields = requiredFields.filter(field => !formData[field]);
+    
+        if (missingFields.length > 0) {
+            alert('Please fill in all required fields.');
+            return;
+        }
         try {
             const response = await axios.put(`${API_URL}/warehouses/${warehouseId}`, formData, {
                 headers: {'Content-Type': 'application/json'}
@@ -84,7 +92,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             value={formData.warehouse_name}
                             onChange={handleInputChange}
                             placeholder={wName}
-                            required
+                           
                         />
                     </div>
                     <div className='form__container'>
@@ -96,7 +104,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             value={formData.address}
                             onChange={handleInputChange}
                             placeholder={wAddress}
-                            required
+                            
                         />
                     </div>
                     <div className='form__container'>
@@ -108,7 +116,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             value={formData.city}
                             onChange={handleInputChange}
                             placeholder={wcity}
-                            required
+                            
                         />
                     </div>
                     <div className='form__container'>
@@ -120,7 +128,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             value={formData.country}
                             onChange={handleInputChange}
                             placeholder={wCountry}
-                            required
+                            
                         />
                     </div>
                 </section>
@@ -136,7 +144,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             value={formData.contact_name}
                             onChange={handleInputChange}
                             placeholder={wContactName}
-                            required
+                            
                         />
                     </div>
                     <div className='form__container'>
@@ -148,7 +156,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             value={formData.contact_position}
                             onChange={handleInputChange}
                             placeholder={wContactPos}
-                            required
+                            
                         />
                     </div>
                     <div className='form__container'>
@@ -160,7 +168,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             value={formData.contact_phone}
                             onChange={handleInputChange}
                             placeholder={wContactPHone}
-                            required
+                            
                         />
                     </div>
                     <div className='form__container'>
@@ -172,7 +180,7 @@ const FormWarehouseDetails = ({warehouseId}) => {
                             value={formData.contact_email}
                             onChange={handleInputChange}
                             placeholder={wContactEmail}
-                            required
+                            
                         />
                     </div>
                 </section>
