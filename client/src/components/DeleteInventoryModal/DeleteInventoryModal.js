@@ -5,7 +5,6 @@ import axios from "axios";
 export const DeleteInventoryModal = ({itemName, closeModal, id }) => {
     const delRequest = async () => {
         try {
-            // TODO: make it functional when the website has the item data visible in InventoryList Comp.
             const response = await axios.delete(`http://localhost:8080/api/inventories/${id}` )
             console.log(response.status)
         }

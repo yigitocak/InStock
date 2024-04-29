@@ -1,10 +1,10 @@
-import axios from 'axios'
 import "./WarehouseDetails.scss"
 import back from "../../assets/icons/arrow_back-24px.svg"
 //import edit from "../../assets/icons/edit-24px.svg"
 import {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import MyIcon from '../../assets/icons/edit-24px.svg';
+import axios from "axios";
 
 const WarehouseDetails = ({warehouseId}) => {
     function MyComponent() {

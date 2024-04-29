@@ -5,7 +5,6 @@ import axios from "axios";
 export const DeleteWarehouseModal = ({warehouseName, closeModal, id }) => {
     const delRequest = async () => {
         try {
-            // TODO: make it functional when the website has the warehouse data visible in WarehouseList Comp.
             const response = await axios.delete(`http://localhost:8080/api/warehouses/${id}` )
             console.log(response.status)
         }

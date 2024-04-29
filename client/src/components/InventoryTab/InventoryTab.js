@@ -30,18 +30,6 @@ const InventoryTab =() => {
         if (! inventList){
             return<div>Loading ...</div>
         }
-
-    const statusOf =() => {
-        inventList.forEach((inventory) =>{
-            if (inventList.quantity === 0){
-                <p className="invent__in">IN STOCK</p>
-            }
-            else{
-                <p className="invent__out">OUT OF STOCK</p>
-            }
-        })
-        
-    }
     return (
         <div className="invent">
             <div className="invent__titlecon">
@@ -75,7 +63,7 @@ const InventoryTab =() => {
                 {
                     inventList.map((inventory) =>{
                         return(
-                            <article className="invent__tablet" >
+                            <article className="invent__tablet" key={inventory.id}>
                             <NavLink to={`/inventory/${inventory.id}`} className="invent__item invent__item--nav">
                                 <p className="invent__object" >{inventory.item_name}</p>
                                 <img className="invent__icons invent__icons--right" src={right} alt=""/>
@@ -92,11 +80,9 @@ const InventoryTab =() => {
                                             <img  src={deletecon} alt="Delete"/>
                                     </button>
                                 </div>
-                                {modalOpen && <DeleteInventoryModal inventoryName="placeholder" closeModal={toggleModal} />}
                             </article>
-                            
                             )
-                            
+
                     })
                 }
 
@@ -143,11 +129,11 @@ const InventoryTab =() => {
                                         <img src={edit} alt='edit'/>
                                     </Link>
                                 </section>
-                                {modalOpen && <DeleteInventoryModal inventoryName="placeholder" closeModal={toggleModal} />}
                         </article>
                     )})
                 }
             </div>
+            {modalOpen && <DeleteInventoryModal inventoryName="placeholder" closeModal={toggleModal} />}
         </div>
        
     )

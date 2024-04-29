@@ -5,7 +5,7 @@ import deletecon from "../../assets/icons/delete_outline-24px.svg"
 import right from "../../assets/icons/chevron_right-24px.svg"
 import dropdown from "../../assets/icons/sort-24px.svg"
 import {useState, useEffect} from 'react'
-import { NavLink, Link, useParams} from "react-router-dom";
+import { NavLink, Link} from "react-router-dom";
 import {DeleteInventoryModal} from "../DeleteInventoryModal/DeleteInventoryModal"
 
 const InventoryList =({warehouseId}) => {
@@ -31,19 +31,6 @@ const InventoryList =({warehouseId}) => {
         if (! activeInventory){
             return<div>Loading ...</div>
         }
-    
-    const statusOf =() => {
-        activeInventory.forEach((inventory) =>{
-            if (inventory.quantity === 0){
-               return( <p className="invent__in">IN STOCK</p>)
-            }
-            else{
-                return(<p className="invent__out">OUT OF STOCK</p>)
-            }
-        })
-        
-    }
-    console.log(activeInventory)
     return (
         <div className="invent__h">
             <div className="invent__titlecon">
@@ -71,9 +58,9 @@ const InventoryList =({warehouseId}) => {
             </div>
             <div>{
                     activeInventory.map((inventory) =>{
-                        
                         return(
-                            <article className="invent__tablet" >
+                            <>
+                            <article className="invent__tablet" key={inventory.id}>
                                 <NavLink to={`/inventory/${inventory.id}`} className="invent__item invent__item--nav">
                                     <p className="invent__object" >{inventory.item_name}</p>
                                     <img className="invent__icons invent__icons--right" src={right} alt=""/>
@@ -89,10 +76,9 @@ const InventoryList =({warehouseId}) => {
                                             <img  src={deletecon} alt="Delete"/>
                                     </button>
                                 </div>
-                                {modalOpen && <DeleteInventoryModal inventoryName="placeholder" closeModal={toggleModal} />}
                             </article>
-                            
-                        
+                        {modalOpen && <DeleteInventoryModal itemName="sik" id={inventory.id} closeModal={toggleModal} />}
+                        </>
                         )
                     })
             }</div>
@@ -101,43 +87,44 @@ const InventoryList =({warehouseId}) => {
                 {
                     activeInventory.map((inventory) =>{
                         return(
-                        <article className="invent__itemcon" >
-                            <section className="invent__list">
-                                <section className="invent__des">
-                                    <div className="invent__container">
-                                        <p>INVENTORY ITEM</p>
-                                        <NavLink  className="invent__nav" to={`/inventory/${inventory.id}/`}>
-                                            <p>{inventory.item_name}</p>
-                                            <img className="invent__icons" src={right} alt=""/>
-                                        </NavLink>
-                                    </div>
-                                    <div className="invent__container">
-                                        <p className="invent__label" >CATEGORY</p>
-                                        <p className="invent__item">{inventory.category}</p>
-                                    </div>
-                                </section>
-                                <section className="invent__available">
-                                    <div className="invent__container">
-                                        <p className="invent__label" >STATUS</p>
-                                        <p className={`invent__item ${inventory.quantity?'in' : 'out'}`}>{inventory.status}</p>
-                                    </div>
-                                    <div className="invent__container">
-                                        <p className="invent__label" >QUANTITY</p>
-                                        <p className="invent__item">{inventory.quantity}</p>
-                                    </div>
-                                </section>
-                            </section>
-                                <section className='invent__actions'>
-                                    <button className="invent__buttond" onClick={toggleModal} >
-                                        <img src={deletecon} alt="Delete"/>
-                                    </button>
-                                    <Link to='/api/warehouses'>
-                                        <img src={edit} alt='edit'/>
-                                    </Link>
-                                </section>
-                                {modalOpen && <DeleteInventoryModal inventoryName="placeholder" closeModal={toggleModal} />}
-                        </article>
-                        
+                            <>
+                                <article className="invent__itemcon" >
+                                    <section className="invent__list">
+                                        <section className="invent__des">
+                                            <div className="invent__container">
+                                                <p>INVENTORY ITEM</p>
+                                                <NavLink  className="invent__nav" to={`/inventory/${inventory.id}/`}>
+                                                    <p>{inventory.item_name}</p>
+                                                    <img className="invent__icons" src={right} alt=""/>
+                                                </NavLink>
+                                            </div>
+                                            <div className="invent__container">
+                                                <p className="invent__label" >CATEGORY</p>
+                                                <p className="invent__item">{inventory.category}</p>
+                                            </div>
+                                        </section>
+                                        <section className="invent__available">
+                                            <div className="invent__container">
+                                                <p className="invent__label" >STATUS</p>
+                                                <p className={`invent__item ${inventory.quantity?'in' : 'out'}`}>{inventory.status}</p>
+                                            </div>
+                                            <div className="invent__container">
+                                                <p className="invent__label" >QUANTITY</p>
+                                                <p className="invent__item">{inventory.quantity}</p>
+                                            </div>
+                                        </section>
+                                    </section>
+                                        <section className='invent__actions'>
+                                            <button className="invent__buttond" onClick={toggleModal} >
+                                                <img src={deletecon} alt="Delete"/>
+                                            </button>
+                                            <Link to='/api/warehouses'>
+                                                <img src={edit} alt='edit'/>
+                                            </Link>
+                                        </section>
+                                </article>
+                                {modalOpen && <DeleteInventoryModal itemName={inventory.item_name} id={inventory.id} closeModal={toggleModal} />}
+                        </>
                     )})
                 
                 }
