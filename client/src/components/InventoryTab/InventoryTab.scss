@@ -1,0 +1,122 @@
+@use '../../styles/partials/globals' as *;
+
+.invent{
+    &__itemcon{
+        display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-top: 1px solid $cloud;
+    gap: 1.25rem;
+    }
+    &__titlecon{
+        display: none;
+        justify-content: space-between;
+        background-color: $grey;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        width:100%;
+        @include tablet{
+            display: flex;
+        }
+    }
+    &__nav{
+        display: flex;
+        text-decoration: none;
+        color: $indigo;
+    }
+    &__item{
+        display: flex;
+        width:16%;
+        &--mod{
+            width:10%;
+        }
+        &--nav:hover{
+            text-decoration: none;
+
+        }
+    }
+    &__itemcon{
+        display: flex;
+        justify-content: space-around;
+        @include tablet{
+            display: none;
+        }
+    }
+    &__icons{
+        width:10%;
+    }
+    &__tablet{
+        display:none;
+        @include tablet{
+            display:flex;
+            justify-content: space-between;
+           // padding: 0 1rem;
+        }
+    }
+    &__object{
+        color: $indigo;
+    }
+    &__title{
+        display: flex;
+        align-items: center;
+        width:16%;
+        font-size:small;
+        &--mod{
+            width:10%;
+        }
+    }
+    &__list{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 1rem;
+    }
+    &__des {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    &__available {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 50%;
+    }
+    &__label {
+        color: $slate;
+        @include tablet{
+            display: none;
+        }
+    }
+    &__buttond{
+        background-color: $white;
+        border-color: transparent;
+    }
+    &__actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include tablet {
+            gap: .5rem;
+        }
+    }
+
+}
+.out{
+    background-color:$cloud ;
+    color: $red;
+    text-transform: uppercase;
+    font-size: small;
+    border-radius: 1rem;
+    padding: 4px;
+    width: fit-content;
+}
+.in{
+    background-color: $cloud;
+    color: $green;
+    text-transform: uppercase;
+    font-size: small;
+    border-radius: 1rem;
+    padding: 4px;
+    width: fit-content;
+}

@@ -1,0 +1,46 @@
+@use '../../styles/partials/globals' as *;
+
+.editW {
+    display: flex;
+    flex-direction: column;
+    background-color: $grey;
+
+    &__container {
+        background-color: $white;
+        margin: 1rem;
+        margin-top: -3rem;
+        border: 1px solid $white;
+        box-shadow: 0px 2px 5px 0px #13182C1A;
+        border-radius: 2px;
+
+        @include tablet {
+            margin: 2rem;
+            margin-top: -4rem;
+            margin-bottom: 12rem;
+        }
+        @include desktop {
+            margin-left:6rem;
+            margin-right: 6rem;
+            margin-bottom: 6rem;
+        }
+    }
+    &__top {
+        display: flex;
+        padding-left: 1rem;
+        gap: .5rem;
+        border-bottom: 1px solid $cloud;
+        align-items: center;
+        height: 4rem;
+    }
+    &__link {
+        display: flex;
+        align-items: center;
+    }
+    &__image {
+        align-self: center;
+    }
+    &__title {
+        align-self: center;
+        font-size: 2rem;
+    }
+}

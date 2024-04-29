@@ -1,0 +1,59 @@
+@use '../../styles/partials/globals' as *;
+
+.main {
+    display: flex;
+    flex-direction: column;
+    background-color: $grey;
+    @include tablet {
+        padding-bottom: 10rem;
+    }
+    @include desktop {
+        padding-bottom: 3rem;
+    }
+
+    &__container {
+        background-color: $white;
+        margin: 1rem;
+        margin-top: -3rem;
+        border-radius: 2px;
+
+        @include tablet {
+            margin: 2rem;
+            margin-top: -4rem;
+        }
+
+        @include desktop {
+            margin: -4rem 6rem 2rem 6rem;
+        }
+    }
+
+    &__top {
+        display: flex;
+        padding-left: 1.3rem;
+        align-items: center;
+        gap: .3rem;
+        border-bottom: 1px solid $cloud;
+        background-color: $white;
+    }
+
+    &__arrow {
+        padding-top: .2rem;
+        cursor: pointer;
+
+        @include desktop {
+            padding-left: 1rem;
+        }
+    }
+
+    &__title {
+        color: $black;
+        font-weight: 600;
+        font-size: 1.25rem;
+        font-family: "Titillium Web", open, sans-serif;
+        text-align: center;
+
+        @include desktop {
+            font-size: 1.65rem;
+        }
+    }
+}

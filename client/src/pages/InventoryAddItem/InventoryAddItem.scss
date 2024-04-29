@@ -1,0 +1,38 @@
+@use '../../styles/partials/globals' as *;
+
+.add {
+    display: flex;
+    flex-direction: column;
+    background-color: $grey;
+
+    &__container {
+        background-color: $white;
+        margin: 1rem;
+        margin-top: -3rem;
+        border: 1px solid $white;
+        box-shadow: $white;
+        border-radius: 2px;
+
+        @include tablet {
+            margin: 2rem;
+            margin-top: -4rem;
+        }
+        @include desktop {
+            margin-left:6rem;
+            margin-right: 6rem;
+        }
+    }
+    &__top {
+        display: flex;
+        padding-left: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        gap: .5rem;
+        border-bottom: 1px solid $cloud;
+        display: flex;
+        align-items: center;
+    }
+    &__link {
+        display: flex;
+    }
+}

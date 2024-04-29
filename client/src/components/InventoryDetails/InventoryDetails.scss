@@ -1,0 +1,74 @@
+@use "../../styles/partials/globals" as *;
+
+.details{
+    &__divs{
+        padding-left: 1rem;
+        @include tablet{
+        display: flex; 
+        }
+    }
+    &__cons{
+        display: flex;
+        padding-left: 1rem;
+        justify-content: space-between;
+        @include tablet{
+        width: 50%;
+        }
+    }
+    &__conc{
+        width: 50%;
+    }
+    &__edit{
+        display: none;
+        @include tablet{
+        display: flex;
+        text-decoration: none;
+        align-items: center;
+        justify-content: space-around;
+        height: 3rem;
+        }
+    }
+    &__icn{
+        @include tablet{
+            display: none;
+        }
+    }
+    &__desd{
+        width: 100%;
+        @include tablet{
+        border-right: $slate solid 1px;
+        }
+    }
+    &__pencil{
+        width:25%;
+        //color: $white;
+    }
+    &__const{
+        display: flex;
+        width: fit-content;
+    }
+    &__dess{
+        @include tablet{
+        width: 50%;
+        }
+    }
+    &__button{
+        color:$white;
+        background-color: $indigo;
+        border-radius: 2rem;
+        border: $red;
+        padding:0.5rem ;
+    }
+    &__headers{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 1rem;
+        border-bottom: $slate solid 1px;
+    }
+    &__name{
+        display: flex;
+        align-items: center;
+        padding-left: 1rem;
+    }
+}
