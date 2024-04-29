@@ -1,6 +1,6 @@
 @use '../../styles/partials/globals' as *;
 
-.edit {
+.editW {
     display: flex;
     flex-direction: column;
     background-color: $grey;
@@ -41,12 +41,6 @@
     }
     &__title {
         align-self: center;
-        height: 100%;
-        padding:1rem;
-        padding-left: 0;
-
-        @include desktop {
-            padding: .75rem;
-        }
+        font-size: 2rem;
     }
 }
